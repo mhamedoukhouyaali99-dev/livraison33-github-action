@@ -15,8 +15,9 @@ pipeline {
 
         stage('Installer les dependances') {
             steps {
-                bat 'python -m pip install --upgrade pip'
-                bat 'python -m pip install --upgrade robotframework robotframework-requests robotframework-seleniumlibrary selenium'
+                bat 'py -3 --version'
+                bat 'py -3 -m pip install --upgrade pip'
+                bat 'py -3 -m pip install --upgrade robotframework robotframework-requests robotframework-seleniumlibrary selenium'
             }
         }
 
@@ -24,7 +25,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                     bat 'if not exist reports mkdir reports'
-                    bat 'python -m unittest discover -v tests_unitaire > reports\\unit-test-results.txt 2>&1'
+                    bat 'py -3 -m unittest discover -v tests_unitaire > reports\\unit-test-results.txt 2>&1'
                 }
             }
         }
@@ -33,7 +34,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                     bat 'if not exist reports\\api mkdir reports\\api'
-                    bat 'python -m robot --outputdir reports\\api tests_api'
+                    bat 'py -3 -m robot --outputdir reports\\api tests_api'
                 }
             }
         }
@@ -42,7 +43,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                     bat 'if not exist reports\\ihm mkdir reports\\ihm'
-                    bat 'python -m robot --outputdir reports\\ihm tests_ihm'
+                    bat 'py -3 -m robot --outputdir reports\\ihm tests_ihm'
                 }
             }
         }
