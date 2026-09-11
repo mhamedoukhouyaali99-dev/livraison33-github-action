@@ -96,8 +96,10 @@ jobs:
 
       - name: Attendre la disponibilite du site IHM
         run: |
+          echo "Adresses IPv4 resolues :"
+          getent ahostsv4 livraison3.testacademy.fr || true
           for attempt in 1 2 3 4 5 6; do
-            if curl --fail --silent --show-error --max-time 20 http://livraison3.testacademy.fr/ > /dev/null; then
+            if curl --ipv4 --fail --silent --show-error --connect-timeout 10 --max-time 30 http://livraison3.testacademy.fr/ > /dev/null; then
               echo "Site IHM disponible (tentative $attempt)"
               exit 0
             fi
