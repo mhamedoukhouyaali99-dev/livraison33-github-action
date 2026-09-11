@@ -1,0 +1,90 @@
+name: Tests automatises
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests-unitaires:
+    name: Tests unitaires
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Executer les tests unitaires
+        run: |
+          python -m unittest discover -v tests_unitaire > unit-test-results.txt 2>&1
+          cat unit-test-results.txt
+
+      - name: Conserver le rapport
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapport-tests-unitaires
+          path: unit-test-results.txt
+          if-no-files-found: ignore
+
+  tests-api:
+    name: Tests API
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installer les dependances Robot Framework
+        run: python -m pip install --upgrade robotframework robotframework-requests
+
+      - name: Executer les tests API
+        run: robot --outputdir reports/api tests_api
+
+      - name: Conserver les rapports API
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapports-tests-api
+          path: reports/api
+          if-no-files-found: ignore
+
+  tests-ihm:
+    name: Tests IHM
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installer les dependances Robot Framework et Selenium
+        run: python -m pip install --upgrade robotframework robotframework-selenium2library selenium
+
+      - name: Executer les tests IHM dans un affichage virtuel
+        run: xvfb-run --auto-servernum robot --outputdir reports/ihm tests_ihm
+
+      - name: Conserver les rapports IHM
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapports-tests-ihm
+          path: reports/ihm
+          if-no-files-found: ignore
