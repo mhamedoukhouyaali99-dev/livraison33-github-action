@@ -82,6 +82,11 @@ jobs:
       - name: Installer les dependances Robot Framework et Selenium
         run: python -m pip install --upgrade robotframework robotframework-seleniumlibrary selenium
 
+      - name: Utiliser Selenium Manager pour un ChromeDriver compatible
+        run: |
+          sudo rm -f /usr/bin/chromedriver /usr/local/bin/chromedriver
+          xvfb-run --auto-servernum python -c "from selenium import webdriver; from selenium.webdriver.chrome.options import Options; options = Options(); options.add_argument('--headless=new'); options.add_argument('--no-sandbox'); options.add_argument('--disable-dev-shm-usage'); driver = webdriver.Chrome(options=options); driver.quit()"
+
       - name: Executer les tests IHM dans un affichage virtuel
         run: xvfb-run --auto-servernum python -m robot --outputdir reports/ihm tests_ihm
 

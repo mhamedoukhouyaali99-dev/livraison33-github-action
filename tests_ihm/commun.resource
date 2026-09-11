@@ -44,7 +44,7 @@ ${MESSAGE RESULTAT CONTACT}    css=.homey_contact_messages
 *** Keywords ***
 # --- Keywords Généraux ---
 Ouvrir Le Navigateur Et Accéder A L'Application
-    Open Browser    ${URL}    ${NAVIGATEUR}
+    Open Browser    ${URL}    ${NAVIGATEUR}    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage")
     Maximize Browser Window
 
 # --- Keywords Connexion (Existants) ---
