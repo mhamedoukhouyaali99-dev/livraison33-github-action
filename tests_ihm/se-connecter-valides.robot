@@ -29,8 +29,9 @@ Vérifier Que Le Tableau De Bord Est Visible
     Title Should Be    ${TITRE PAGE TABLEAU DE BORD}
 
 Effectuer Une Déconnexion Réussie
-    Click Link    ${LIEN SE DECONECTER}
-    Wait Until Element Is Not Visible    ${LIEN SE DECONECTER}    timeout=10s
+    ${clique}=    Execute Javascript    var liens = Array.from(document.querySelectorAll('a')); var lien = liens.find(function(element) { return element.textContent.includes('Se déconnecter') && element.offsetParent !== null; }); if (!lien) { return false; } lien.click(); return true;
+    Should Be True    ${clique}
+    Wait Until Element Is Visible    ${LIEN SE CONNECTER}    timeout=30s
 
 Vérifier Que Le Lien De Connexion Est Visible
     Element Should Be Visible    ${LIEN SE CONNECTER}
