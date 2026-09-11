@@ -22,7 +22,8 @@ pipeline {
                             "$env:ProgramFiles\\Python311\\python.exe",
                             "$env:ProgramFiles\\Python312\\python.exe",
                             "$env:LocalAppData\\Programs\\Python\\Python311\\python.exe",
-                            "$env:LocalAppData\\Programs\\Python\\Python312\\python.exe"
+                            "$env:LocalAppData\\Programs\\Python\\Python312\\python.exe",
+                            "C:\\Users\\M'hamed\\AppData\\Local\\Programs\\Python\\Python311\\python.exe"
                         ) | Where-Object { $_ -and (Test-Path $_) }
 
                         foreach ($candidate in $candidates) {
