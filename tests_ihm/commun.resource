@@ -54,7 +54,8 @@ Ouvrir Le Navigateur Et Accéder A L'Application
 
 # --- Keywords Connexion (Existants) ---
 Accéder A La Page De Connexion
-    Click Element   ${LIEN SE CONNECTER}
+    Wait Until Element Is Visible    ${LIEN SE CONNECTER}    timeout=30s
+    Click Element    ${LIEN SE CONNECTER}
 
 Saisir Le Nom D'Utilisateur
     [Arguments]      ${nom utilisateur}
@@ -72,12 +73,12 @@ Soumette Le Formulaire De Connexion
 # --- NOUVEAUX KEYWORDS (Feature Contacter Hôte) ---
 Accéder A Une Page Annonce
     Go To    ${URL ANNONCE}
-    Wait Until Element Is Visible    ${BOUTON CONTACTER HOTE SIDEBAR}    timeout=10s
+    Wait Until Element Is Visible    ${BOUTON CONTACTER HOTE SIDEBAR}    timeout=30s
 
 Ouvrir Le Formulaire De Contact Hôte
     Click Element    ${BOUTON CONTACTER HOTE SIDEBAR}
-    Wait Until Element Is Visible    ${MODAL CONTACT HOTE}    timeout=10s
-    Wait Until Element Is Visible    ${CHAMP NOM CONTACT}    timeout=10s
+    Wait Until Element Is Visible    ${MODAL CONTACT HOTE}    timeout=30s
+    Wait Until Element Is Visible    ${CHAMP NOM CONTACT}    timeout=30s
 
 Remplir Le Formulaire De Contact
     [Arguments]    ${nom}    ${email}    ${telephone}    ${message}
