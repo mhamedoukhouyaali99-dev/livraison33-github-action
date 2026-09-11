@@ -44,22 +44,22 @@ ${MESSAGE RESULTAT CONTACT}    css=.homey_contact_messages
 *** Keywords ***
 # --- Keywords Généraux ---
 Ouvrir Le Navigateur Et Accéder A L'Application
-    Open Browser    ${URL}    ${NAVIGATEUR}    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage")
-    Maximize Browser Window
+    Open Browser    ${URL}    ${NAVIGATEUR}    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")
+    Set Window Size    1920    1080
 
 # --- Keywords Connexion (Existants) ---
 Accéder A La Page De Connexion
     Click Element   ${LIEN SE CONNECTER}
 
-Saisir Le Nom D'Utilisateur 
-   [Arguments]      ${UTILISATEUR VALIDE}  
-    Wait Until Element Is Visible  ${CHAMP UTILISATEUR}
-    Click Element   ${CHAMP UTILISATEUR}
-    Input Text      ${CHAMP UTILISATEUR}   ${UTILISATEUR VALIDE} 
+Saisir Le Nom D'Utilisateur
+    [Arguments]      ${nom utilisateur}
+    Wait Until Element Is Visible    ${CHAMP UTILISATEUR}    timeout=10s
+    Click Element    ${CHAMP UTILISATEUR}
+    Input Text       ${CHAMP UTILISATEUR}    ${nom utilisateur}
 
 Saisir Le Mot De Passe
-   [Arguments]       ${MOT DE PASSE VALIDE}
-   Input Password   ${CHAMP DE MOT DE PASSE}   ${MOT DE PASSE VALIDE}
+    [Arguments]      ${mot de passe}
+    Input Password   ${CHAMP DE MOT DE PASSE}    ${mot de passe}
 
 Soumette Le Formulaire De Connexion
    Click Button     ${BOUTON SE CONNECTER}
@@ -67,12 +67,12 @@ Soumette Le Formulaire De Connexion
 # --- NOUVEAUX KEYWORDS (Feature Contacter Hôte) ---
 Accéder A Une Page Annonce
     Go To    ${URL ANNONCE}
-    Wait Until Element Is Visible    ${BOUTON CONTACTER HOTE SIDEBAR}
+    Wait Until Element Is Visible    ${BOUTON CONTACTER HOTE SIDEBAR}    timeout=10s
 
 Ouvrir Le Formulaire De Contact Hôte
     Click Element    ${BOUTON CONTACTER HOTE SIDEBAR}
-    Wait Until Element Is Visible    ${MODAL CONTACT HOTE}
-    Wait Until Element Is Visible    ${CHAMP NOM CONTACT}
+    Wait Until Element Is Visible    ${MODAL CONTACT HOTE}    timeout=10s
+    Wait Until Element Is Visible    ${CHAMP NOM CONTACT}    timeout=10s
 
 Remplir Le Formulaire De Contact
     [Arguments]    ${nom}    ${email}    ${telephone}    ${message}
