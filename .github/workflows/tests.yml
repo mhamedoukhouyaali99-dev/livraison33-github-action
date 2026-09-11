@@ -79,12 +79,17 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Installer Chrome stable et ChromeDriver compatible
+      - name: Installer Chrome stable
+        id: setup-chrome
         uses: browser-actions/setup-chrome@v2
         with:
           chrome-version: stable
           install-dependencies: true
-          install-chromedriver: true
+
+      - name: Installer ChromeDriver compatible avec Chrome installe
+        uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: ${{ steps.setup-chrome.outputs.chrome-version }}
 
       - name: Installer les dependances Robot Framework et Selenium
         run: python -m pip install --upgrade robotframework robotframework-seleniumlibrary selenium
@@ -104,4 +109,3 @@ jobs:
           name: rapports-tests-ihm
           path: reports/ihm
           if-no-files-found: ignore
-
