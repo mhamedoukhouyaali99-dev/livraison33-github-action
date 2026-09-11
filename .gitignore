@@ -1,0 +1,11 @@
+# Rapports et sorties de tests
+reports/
+log.html
+output.xml
+report.html
+results_api.html
+
+# Fichiers Python locaux
+__pycache__/
+*.py[cod]
+.pytest_cache/
