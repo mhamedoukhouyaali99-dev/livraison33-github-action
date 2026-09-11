@@ -50,6 +50,7 @@ pipeline {
                 bat '"%PYTHON_EXE%" --version'
                 bat '"%PYTHON_EXE%" -m pip install --upgrade pip'
                 bat '"%PYTHON_EXE%" -m pip install --upgrade robotframework robotframework-requests robotframework-seleniumlibrary selenium'
+                bat '"%PYTHON_EXE%" -m pip install --upgrade -r requirements.txt'
             }
         }
 
@@ -67,6 +68,8 @@ pipeline {
                 catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                     bat 'if not exist reports\\api mkdir reports\\api'
                     bat '"%PYTHON_EXE%" -m robot --outputdir reports\\api tests_api'
+                    bat 'if not exist reports\\api-pytest mkdir reports\\api-pytest'
+                    bat '"%PYTHON_EXE%" -m pytest tests\\test_api --html=reports\\api-pytest\\results_api.html --self-contained-html -q'
                 }
             }
         }
