@@ -13,13 +13,6 @@ pipeline {
             }
         }
 
-        stage('Verifier Python temporaire') {
-            steps {
-                bat 'where python'
-                bat 'python --version'
-            }
-        }
-
         stage('Detecter Python') {
             steps {
                 script {
