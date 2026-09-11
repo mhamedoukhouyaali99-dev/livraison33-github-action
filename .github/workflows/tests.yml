@@ -1,7 +1,11 @@
 name: Tests automatises
 
 on:
-  push: {}
+  push:
+    branches:
+      - '**'
+    paths:
+      - '**'
   pull_request:
   workflow_dispatch:
 
@@ -52,7 +56,7 @@ jobs:
         run: python -m pip install --upgrade robotframework robotframework-requests
 
       - name: Executer les tests API
-        run: robot --outputdir reports/api tests_api
+        run: python -m robot --outputdir reports/api tests_api
 
       - name: Conserver les rapports API
         if: always()
@@ -79,7 +83,7 @@ jobs:
         run: python -m pip install --upgrade robotframework robotframework-selenium2library selenium
 
       - name: Executer les tests IHM dans un affichage virtuel
-        run: xvfb-run --auto-servernum robot --outputdir reports/ihm tests_ihm
+        run: xvfb-run --auto-servernum python -m robot --outputdir reports/ihm tests_ihm
 
       - name: Conserver les rapports IHM
         if: always()
