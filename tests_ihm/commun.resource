@@ -10,14 +10,15 @@ ${URL}            http://livraison3.testacademy.fr
 ${NAVIGATEUR}      chrome
 
 # --- Locators Connexion (Existants) ---
-${LIEN SE CONNECTER}     xpath=//a[contains(text(),'Se connecter')]
+${LIEN SE CONNECTER}     css=a[data-target="#modal-login"]
+${MODAL CONNEXION}      css=#modal-login
 ${CHAMP UTILISATEUR}    name=username
 ${CHAMP DE MOT DE PASSE}    name=password
 ${UTILISATEUR VALIDE}      test 
 ${MOT DE PASSE VALIDE}     test
 ${BOUTON SE CONNECTER}     css=.homey_login_button
 ${TITRE PAGE TABLEAU DE BORD}    Tableau de bord - Livraison 3
-${LIEN SE DECONECTER}         xpath=(//a[contains(text(),'Se déconnecter')])[3]
+${LIEN SE DECONECTER}         xpath=//a[contains(normalize-space(.),'Se déconnecter')]
 ${UTILISATEUR NON VALIDE}     nonvalide
 ${MOT DE PASSE NON VALIDE}     nonvalide
 ${ESPACE POUR AFFICHER LES ERREURS}  css=#modal-login .error
@@ -27,7 +28,7 @@ ${ESPACE POUR AFFICHER LES ERREURS}  css=#modal-login .error
 ${URL ANNONCE}    http://livraison3.testacademy.fr/index.php/listing/beautiful-cove/
 
 # Bouton dans la sidebar droite (version desktop)
-${BOUTON CONTACTER HOTE SIDEBAR}    xpath=//div[@class='sidebar-booking-module-footer']//button[contains(text(), "Contactez l'hôte")]
+${BOUTON CONTACTER HOTE SIDEBAR}    css=button[data-target="#modal-contact-host"]
 
 # Champs du formulaire modal "Contactez l'hôte"
 ${MODAL CONTACT HOTE}       css=#modal-contact-host
@@ -50,7 +51,9 @@ Ouvrir Le Navigateur Et Accéder A L'Application
 # --- Keywords Connexion (Existants) ---
 Accéder A La Page De Connexion
     Wait Until Element Is Visible    ${LIEN SE CONNECTER}    timeout=30s
+    Scroll Element Into View    ${LIEN SE CONNECTER}
     Click Element    ${LIEN SE CONNECTER}
+    Wait Until Element Is Visible    ${MODAL CONNEXION}    timeout=30s
 
 Saisir Le Nom D'Utilisateur
     [Arguments]      ${nom utilisateur}
@@ -69,6 +72,7 @@ Soumette Le Formulaire De Connexion
 Accéder A Une Page Annonce
     Go To    ${URL ANNONCE}
     Wait Until Element Is Visible    ${BOUTON CONTACTER HOTE SIDEBAR}    timeout=30s
+    Scroll Element Into View    ${BOUTON CONTACTER HOTE SIDEBAR}
 
 Ouvrir Le Formulaire De Contact Hôte
     Click Element    ${BOUTON CONTACTER HOTE SIDEBAR}
