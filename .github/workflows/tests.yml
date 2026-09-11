@@ -79,45 +79,15 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Installer Chrome stable
-        id: setup-chrome
-        uses: browser-actions/setup-chrome@v2
-        with:
-          chrome-version: stable
-          install-dependencies: true
-          install-chromedriver: true
-
       - name: Installer les dependances Robot Framework et Selenium
         run: python -m pip install --upgrade robotframework robotframework-seleniumlibrary selenium
 
-      - name: Verifier Chrome et ChromeDriver
+      - name: Verifier Chrome du runner
         run: |
           google-chrome --version
-          chromedriver --version
-
-      - name: Diagnostiquer l acces au site IHM
-        run: |
-          python - <<'PY'
-          from urllib.request import urlopen
-
-          urls = [
-              "http://livraison3.testacademy.fr/",
-              "http://livraison3.testacademy.fr/index.php/listing/beautiful-cove/",
-          ]
-          for url in urls:
-              try:
-                  with urlopen(url, timeout=30) as response:
-                      body = response.read(1000).decode("utf-8", errors="replace")
-                      print(f"URL={url}")
-                      print(f"STATUS={response.status}")
-                      print(f"FINAL_URL={response.geturl()}")
-                      print(f"BODY={body.replace(chr(10), ' ')[:500]}")
-              except Exception as error:
-                  print(f"URL={url} ERROR={error}")
+          rm -f "$(command -v chromedriver || true)"
 
       - name: Executer les tests IHM dans un affichage virtuel
-        env:
-          CHROME_BIN: ${{ steps.setup-chrome.outputs.chrome-path }}
         run: xvfb-run --auto-servernum python -m robot --outputdir reports/ihm tests_ihm
 
       - name: Conserver les rapports IHM

@@ -1,6 +1,5 @@
 *** Settings ***
 Library     SeleniumLibrary
-Library     OperatingSystem
 
 
 
@@ -45,19 +44,8 @@ ${MESSAGE RESULTAT CONTACT}    css=.homey_contact_messages
 *** Keywords ***
 # --- Keywords Généraux ---
 Ouvrir Le Navigateur Et Accéder A L'Application
-    ${chrome binary}=    Get Environment Variable    CHROME_BIN    ${EMPTY}
-    Run Keyword If    "${chrome binary}" == "${EMPTY}"
-    ...    Open Browser    ${URL}    ${NAVIGATEUR}    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--disable-blink-features=AutomationControlled");add_argument("--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36");add_argument("--window-size=1920,1080")
-    ...    ELSE
-    ...    Open Browser    ${URL}    ${NAVIGATEUR}    options=binary_location="${chrome binary}";add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--disable-blink-features=AutomationControlled");add_argument("--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36");add_argument("--window-size=1920,1080")
+    Open Browser    ${URL}    ${NAVIGATEUR}    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")
     Set Window Size    1920    1080
-    ${location}=    Get Location
-    ${title}=    Get Title
-    ${body}=    Get Text    xpath=//body
-    ${body preview}=    Evaluate    $body[:500]
-    Log To Console    URL finale: ${location}
-    Log To Console    Titre: ${title}
-    Log To Console    Apercu body: ${body preview}
 
 # --- Keywords Connexion (Existants) ---
 Accéder A La Page De Connexion
