@@ -85,7 +85,9 @@ jobs:
       - name: Verifier Chrome du runner
         run: |
           google-chrome --version
-          rm -f "$(command -v chromedriver || true)"
+          if command -v chromedriver >/dev/null 2>&1; then
+            sudo rm -f "$(command -v chromedriver)"
+          fi
 
       - name: Executer les tests IHM dans un affichage virtuel
         run: xvfb-run --auto-servernum python -m robot --outputdir reports/ihm tests_ihm
