@@ -80,7 +80,7 @@ jobs:
           python-version: '3.11'
 
       - name: Installer les dependances Robot Framework et Selenium
-        run: python -m pip install --upgrade robotframework robotframework-selenium2library selenium
+        run: python -m pip install --upgrade robotframework robotframework-seleniumlibrary selenium
 
       - name: Executer les tests IHM dans un affichage virtuel
         run: xvfb-run --auto-servernum python -m robot --outputdir reports/ihm tests_ihm

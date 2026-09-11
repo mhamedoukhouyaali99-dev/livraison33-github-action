@@ -1,5 +1,5 @@
 *** Settings ***
-Library        Selenium2Library
+Library        SeleniumLibrary
 Resource       commun.resource
 Test Setup     Ouvrir Le Navigateur Et Accéder A L'Application
 Test Template  Un Message d'Erreur Doit Etre Visible Apres Une Connexion Incorrecte
