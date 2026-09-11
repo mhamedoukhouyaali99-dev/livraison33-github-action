@@ -45,8 +45,11 @@ ${MESSAGE RESULTAT CONTACT}    css=.homey_contact_messages
 *** Keywords ***
 # --- Keywords Généraux ---
 Ouvrir Le Navigateur Et Accéder A L'Application
-    Open Browser    ${URL}    ${NAVIGATEUR}    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")
+    Wait Until Keyword Succeeds    3x    10s    Ouvrir Le Navigateur
     Set Window Size    1920    1080
+
+Ouvrir Le Navigateur
+    Open Browser    ${URL}    ${NAVIGATEUR}    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")
 
 # --- Keywords Connexion (Existants) ---
 Accéder A La Page De Connexion

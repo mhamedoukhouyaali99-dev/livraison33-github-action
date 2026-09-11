@@ -89,6 +89,19 @@ jobs:
             sudo rm -f "$(command -v chromedriver)"
           fi
 
+      - name: Attendre la disponibilite du site IHM
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            if curl --fail --silent --show-error --max-time 20 http://livraison3.testacademy.fr/ > /dev/null; then
+              echo "Site IHM disponible (tentative $attempt)"
+              exit 0
+            fi
+            echo "Site IHM indisponible (tentative $attempt/6)"
+            sleep 10
+          done
+          echo "Le site IHM est inaccessible apres 6 tentatives"
+          exit 1
+
       - name: Executer les tests IHM dans un affichage virtuel
         run: xvfb-run --auto-servernum python -m robot --outputdir reports/ihm tests_ihm
 
