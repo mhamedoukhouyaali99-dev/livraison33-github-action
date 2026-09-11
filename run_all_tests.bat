@@ -14,6 +14,9 @@ if errorlevel 1 set "global_status=1"
 call run_api.bat
 if errorlevel 1 set "global_status=1"
 
+call run_ihm.bat
+if errorlevel 1 set "global_status=1"
+
 echo.
 echo ===============================
 echo RESULTAT GLOBAL

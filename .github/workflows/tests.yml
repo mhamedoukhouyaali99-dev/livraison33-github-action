@@ -66,3 +66,30 @@ jobs:
           path: reports/api
           if-no-files-found: ignore
 
+  tests-ihm:
+    name: Tests IHM
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installer les dependances Robot Framework et Selenium
+        run: python -m pip install --upgrade robotframework robotframework-seleniumlibrary selenium
+
+      - name: Executer les tests IHM dans un affichage virtuel
+        run: xvfb-run --auto-servernum python -m robot --outputdir reports/ihm tests_ihm
+
+      - name: Conserver les rapports IHM
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapports-tests-ihm
+          path: reports/ihm
+          if-no-files-found: ignore
+
