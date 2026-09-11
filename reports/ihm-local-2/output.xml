@@ -1,0 +1,2545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.11.0rc2 on win32)" generated="2026-09-11T16:54:19.242133" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests Ihm" source="C:\Users\M'hamed\OneDrive\Desktop\github-action\tests_ihm">
+<suite id="s1-s1" name="Hote" source="C:\Users\M'hamed\OneDrive\Desktop\github-action\tests_ihm\hote.robot">
+<test id="s1-s1-t1" name="Test Formulaire Contact Avec Toutes Les Données" line="11">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:54:23.626184" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:54:23.626184" elapsed="20.686180"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:54:44.312364" elapsed="0.855106"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:54:23.626184" elapsed="21.541286"/>
+</kw>
+<kw name="Soumettre Le Formulaire De Contact Hôte Et Vérifier Le Retour">
+<kw name="Accéder A Une Page Annonce" owner="commun">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:54:45.175470" level="INFO">Opening url 'http://livraison3.testacademy.fr/index.php/listing/beautiful-cove/'</msg>
+<arg>${URL ANNONCE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:54:45.175470" elapsed="5.537815"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOUTON CONTACTER HOTE SIDEBAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-11T16:54:50.713285" elapsed="0.421077"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:54:45.175470" elapsed="5.960380"/>
+</kw>
+<kw name="Ouvrir Le Formulaire De Contact Hôte" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:54:51.141294" level="INFO">Clicking element 'xpath=//div[@class='sidebar-booking-module-footer']//button[contains(text(), "Contactez l'hôte")]'.</msg>
+<msg time="2026-09-11T16:54:53.569674" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:54:53.571701" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${BOUTON CONTACTER HOTE SIDEBAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:54:51.141294" elapsed="2.460735">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MODAL CONTACT HOTE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-09-11T16:54:53.603156" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHAMP NOM CONTACT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-09-11T16:54:53.604267" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:54:51.137328" elapsed="2.468180">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Remplir Le Formulaire De Contact" owner="commun">
+<arg>${nom}</arg>
+<arg>${email}</arg>
+<arg>${telephone}</arg>
+<arg>${message}</arg>
+<status status="NOT RUN" start="2026-09-11T16:54:53.609729" elapsed="0.001023"/>
+</kw>
+<kw name="Soumettre Le Formulaire De Contact" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:54:53.611145" elapsed="0.001117"/>
+</kw>
+<kw name="Vérifier Que Le Message De Retour Est Visible" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:54:53.613282" elapsed="0.000098"/>
+</kw>
+<arg>Jean</arg>
+<arg>jean@test.fr</arg>
+<arg>0600000000</arg>
+<arg>Bonjour, je suis intéressé.</arg>
+<status status="FAIL" start="2026-09-11T16:54:45.167470" elapsed="8.446928">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-11T16:54:53.617216" elapsed="2.525905"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:54:23.609541" elapsed="32.533580">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<test id="s1-s1-t2" name="Test Formulaire Contact Sans Nom" line="12">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:54:56.174533" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:54:56.174533" elapsed="15.598270"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:55:11.772803" elapsed="0.869566"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:54:56.160851" elapsed="16.481518"/>
+</kw>
+<kw name="Soumettre Le Formulaire De Contact Hôte Et Vérifier Le Retour">
+<kw name="Accéder A Une Page Annonce" owner="commun">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:55:12.689519" level="INFO">Opening url 'http://livraison3.testacademy.fr/index.php/listing/beautiful-cove/'</msg>
+<arg>${URL ANNONCE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:55:12.689519" elapsed="5.990949"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOUTON CONTACTER HOTE SIDEBAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-11T16:55:18.680468" elapsed="0.592254"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:55:12.676343" elapsed="6.599070"/>
+</kw>
+<kw name="Ouvrir Le Formulaire De Contact Hôte" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:55:19.275413" level="INFO">Clicking element 'xpath=//div[@class='sidebar-booking-module-footer']//button[contains(text(), "Contactez l'hôte")]'.</msg>
+<msg time="2026-09-11T16:55:21.475399" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:55:21.475399" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${BOUTON CONTACTER HOTE SIDEBAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:55:19.275413" elapsed="2.199986">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MODAL CONTACT HOTE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-09-11T16:55:21.475399" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHAMP NOM CONTACT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-09-11T16:55:21.475399" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:55:19.275413" elapsed="2.199986">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Remplir Le Formulaire De Contact" owner="commun">
+<arg>${nom}</arg>
+<arg>${email}</arg>
+<arg>${telephone}</arg>
+<arg>${message}</arg>
+<status status="NOT RUN" start="2026-09-11T16:55:21.492157" elapsed="0.000000"/>
+</kw>
+<kw name="Soumettre Le Formulaire De Contact" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:55:21.492157" elapsed="0.000000"/>
+</kw>
+<kw name="Vérifier Que Le Message De Retour Est Visible" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:55:21.492157" elapsed="0.000000"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>jean@test.fr</arg>
+<arg>0600000000</arg>
+<arg>Bonjour, je suis intéressé.</arg>
+<status status="FAIL" start="2026-09-11T16:55:12.659583" elapsed="8.832574">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-11T16:55:21.511361" elapsed="3.163708"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:54:56.160851" elapsed="28.514218">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<test id="s1-s1-t3" name="Test Formulaire Contact Sans Email" line="13">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:55:24.691715" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:55:24.689255" elapsed="15.089453"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:55:39.778708" elapsed="0.443384"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:55:24.675069" elapsed="15.549810"/>
+</kw>
+<kw name="Soumettre Le Formulaire De Contact Hôte Et Vérifier Le Retour">
+<kw name="Accéder A Une Page Annonce" owner="commun">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:55:40.242069" level="INFO">Opening url 'http://livraison3.testacademy.fr/index.php/listing/beautiful-cove/'</msg>
+<arg>${URL ANNONCE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:55:40.242069" elapsed="1.656293"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOUTON CONTACTER HOTE SIDEBAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-11T16:55:41.898362" elapsed="6.406272"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:55:40.242069" elapsed="8.062565"/>
+</kw>
+<kw name="Ouvrir Le Formulaire De Contact Hôte" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:55:48.304634" level="INFO">Clicking element 'xpath=//div[@class='sidebar-booking-module-footer']//button[contains(text(), "Contactez l'hôte")]'.</msg>
+<msg time="2026-09-11T16:55:50.440266" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:55:50.440266" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${BOUTON CONTACTER HOTE SIDEBAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:55:48.304634" elapsed="2.143740">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MODAL CONTACT HOTE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-09-11T16:55:50.448374" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHAMP NOM CONTACT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-09-11T16:55:50.448374" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:55:48.304634" elapsed="2.151377">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Remplir Le Formulaire De Contact" owner="commun">
+<arg>${nom}</arg>
+<arg>${email}</arg>
+<arg>${telephone}</arg>
+<arg>${message}</arg>
+<status status="NOT RUN" start="2026-09-11T16:55:50.458780" elapsed="0.000236"/>
+</kw>
+<kw name="Soumettre Le Formulaire De Contact" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:55:50.460928" elapsed="0.000000"/>
+</kw>
+<kw name="Vérifier Que Le Message De Retour Est Visible" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:55:50.460928" elapsed="0.000000"/>
+</kw>
+<arg>Jean</arg>
+<arg>${EMPTY}</arg>
+<arg>0600000000</arg>
+<arg>Bonjour, je suis intéressé.</arg>
+<status status="FAIL" start="2026-09-11T16:55:40.232883" elapsed="10.228045">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-11T16:55:50.460928" elapsed="4.997824"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:55:24.675069" elapsed="30.783683">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<test id="s1-s1-t4" name="Test Formulaire Contact Sans Message" line="14">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:55:55.474372" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:55:55.458752" elapsed="14.684019"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:56:10.142771" elapsed="0.731191"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:55:55.458752" elapsed="15.415210"/>
+</kw>
+<kw name="Soumettre Le Formulaire De Contact Hôte Et Vérifier Le Retour">
+<kw name="Accéder A Une Page Annonce" owner="commun">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:56:10.916590" level="INFO">Opening url 'http://livraison3.testacademy.fr/index.php/listing/beautiful-cove/'</msg>
+<arg>${URL ANNONCE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:56:10.908586" elapsed="7.146555"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOUTON CONTACTER HOTE SIDEBAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-11T16:56:18.055141" elapsed="0.471085"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:56:10.908586" elapsed="7.633270"/>
+</kw>
+<kw name="Ouvrir Le Formulaire De Contact Hôte" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:56:18.541856" level="INFO">Clicking element 'xpath=//div[@class='sidebar-booking-module-footer']//button[contains(text(), "Contactez l'hôte")]'.</msg>
+<msg time="2026-09-11T16:56:20.641018" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:56:20.641018" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${BOUTON CONTACTER HOTE SIDEBAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:56:18.541856" elapsed="2.099162">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MODAL CONTACT HOTE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-09-11T16:56:20.641018" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHAMP NOM CONTACT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-09-11T16:56:20.641018" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:56:18.541856" elapsed="2.116437">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Remplir Le Formulaire De Contact" owner="commun">
+<arg>${nom}</arg>
+<arg>${email}</arg>
+<arg>${telephone}</arg>
+<arg>${message}</arg>
+<status status="NOT RUN" start="2026-09-11T16:56:20.658293" elapsed="0.000000"/>
+</kw>
+<kw name="Soumettre Le Formulaire De Contact" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:56:20.658293" elapsed="0.000000"/>
+</kw>
+<kw name="Vérifier Que Le Message De Retour Est Visible" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:56:20.658293" elapsed="0.000000"/>
+</kw>
+<arg>Jean</arg>
+<arg>jean@test.fr</arg>
+<arg>0600000000</arg>
+<arg>${EMPTY}</arg>
+<status status="FAIL" start="2026-09-11T16:56:10.895592" elapsed="9.762701">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-11T16:56:20.658293" elapsed="5.330674"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:55:55.458752" elapsed="30.530215">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button type="button" data-toggle="modal" data-target="#modal-contact-host" class="btn btn-full-width btn-grey-outlined"&gt;...&lt;/button&gt; is not clickable at point (384, 419). Other element would receive the click: &lt;div class="overlay-booking-btn visible-sm visible-xs"&gt;...&lt;/div&gt;
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745d7d]
+	chromedriver!(No symbol) [0x7ff6a17a87e3]
+	chromedriver!(No symbol) [0x7ff6a17a6413]
+	chromedriver!(No symbol) [0x7ff6a17a3767]
+	chromedriver!(No symbol) [0x7ff6a17a2630]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<status status="FAIL" start="2026-09-11T16:54:19.616392" elapsed="126.372575"/>
+</suite>
+<suite id="s1-s2" name="Se-Connecter-Invalides" source="C:\Users\M'hamed\OneDrive\Desktop\github-action\tests_ihm\se-connecter-invalides.robot">
+<test id="s1-s2-t1" name="Test Utilisateur Valide Mot De Passe Vide" line="12">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:56:26.043871" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:56:26.043871" elapsed="10.851602"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:56:36.895473" elapsed="5.086707"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:56:26.043871" elapsed="15.938309"/>
+</kw>
+<kw name="Un Message d'Erreur Doit Etre Visible Apres Une Connexion Incorrecte">
+<kw name="Accéder A La Page De Connexion" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:56:42.062854" level="INFO">Clicking element 'xpath=//a[contains(text(),'Se connecter')]'.</msg>
+<msg time="2026-09-11T16:56:43.400705" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:56:43.400705" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${LIEN SE CONNECTER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:56:42.054847" elapsed="1.361485">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<status status="FAIL" start="2026-09-11T16:56:42.054847" elapsed="1.361485">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Saisir Le Nom D'Utilisateur" owner="commun">
+<arg>${nom utilisateur}</arg>
+<status status="NOT RUN" start="2026-09-11T16:56:43.416332" elapsed="0.000000"/>
+</kw>
+<kw name="Saisir Le Mot De Passe" owner="commun">
+<arg>${mot de passe}</arg>
+<status status="NOT RUN" start="2026-09-11T16:56:43.416332" elapsed="0.000000"/>
+</kw>
+<kw name="Soumette Le Formulaire De Connexion" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:56:43.416332" elapsed="0.000000"/>
+</kw>
+<kw name="Vérifier Que Le Message d'Erreur Est Visible">
+<status status="NOT RUN" start="2026-09-11T16:56:43.416332" elapsed="0.000000"/>
+</kw>
+<arg>robot</arg>
+<arg>${EMPTY}</arg>
+<status status="FAIL" start="2026-09-11T16:56:42.046325" elapsed="1.370007">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-11T16:56:43.416332" elapsed="2.902605"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:56:26.043871" elapsed="20.275066">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<test id="s1-s2-t2" name="Test Utilisateur Vide Mot De Passe Valide" line="13">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:56:46.330974" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:56:46.330974" elapsed="14.283681"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:57:00.614655" elapsed="0.831161"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:56:46.324224" elapsed="15.121592"/>
+</kw>
+<kw name="Un Message d'Erreur Doit Etre Visible Apres Une Connexion Incorrecte">
+<kw name="Accéder A La Page De Connexion" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:57:01.505305" level="INFO">Clicking element 'xpath=//a[contains(text(),'Se connecter')]'.</msg>
+<msg time="2026-09-11T16:57:02.523580" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:57:02.523580" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${LIEN SE CONNECTER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:57:01.496077" elapsed="1.044262">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<status status="FAIL" start="2026-09-11T16:57:01.496077" elapsed="1.044262">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Saisir Le Nom D'Utilisateur" owner="commun">
+<arg>${nom utilisateur}</arg>
+<status status="NOT RUN" start="2026-09-11T16:57:02.540339" elapsed="0.000000"/>
+</kw>
+<kw name="Saisir Le Mot De Passe" owner="commun">
+<arg>${mot de passe}</arg>
+<status status="NOT RUN" start="2026-09-11T16:57:02.540339" elapsed="0.000000"/>
+</kw>
+<kw name="Soumette Le Formulaire De Connexion" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:57:02.540339" elapsed="0.000000"/>
+</kw>
+<kw name="Vérifier Que Le Message d'Erreur Est Visible">
+<status status="NOT RUN" start="2026-09-11T16:57:02.557016" elapsed="0.000000"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>robot</arg>
+<status status="FAIL" start="2026-09-11T16:57:01.470790" elapsed="1.086226">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-11T16:57:02.557016" elapsed="3.114190"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:56:46.324224" elapsed="19.405302">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<test id="s1-s2-t3" name="Test Utilisateur Vide Mot De Passe Vide" line="14">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:57:05.814829" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:57:05.806825" elapsed="16.849888"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:57:22.656713" elapsed="0.550052"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:57:05.806825" elapsed="17.399940"/>
+</kw>
+<kw name="Un Message d'Erreur Doit Etre Visible Apres Une Connexion Incorrecte">
+<kw name="Accéder A La Page De Connexion" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:57:23.264689" level="INFO">Clicking element 'xpath=//a[contains(text(),'Se connecter')]'.</msg>
+<msg time="2026-09-11T16:57:24.206768" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:57:24.206768" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${LIEN SE CONNECTER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:57:23.256686" elapsed="0.966449">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<status status="FAIL" start="2026-09-11T16:57:23.256686" elapsed="0.966449">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Saisir Le Nom D'Utilisateur" owner="commun">
+<arg>${nom utilisateur}</arg>
+<status status="NOT RUN" start="2026-09-11T16:57:24.223135" elapsed="0.000000"/>
+</kw>
+<kw name="Saisir Le Mot De Passe" owner="commun">
+<arg>${mot de passe}</arg>
+<status status="NOT RUN" start="2026-09-11T16:57:24.223135" elapsed="0.000000"/>
+</kw>
+<kw name="Soumette Le Formulaire De Connexion" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:57:24.223135" elapsed="0.000000"/>
+</kw>
+<kw name="Vérifier Que Le Message d'Erreur Est Visible">
+<status status="NOT RUN" start="2026-09-11T16:57:24.223135" elapsed="0.000000"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<status status="FAIL" start="2026-09-11T16:57:23.242773" elapsed="0.980362">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-11T16:57:24.239860" elapsed="2.981743"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:57:05.756636" elapsed="21.467406">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<test id="s1-s2-t4" name="Test Utilisateur Non Valide Mot De Passe Valide" line="15">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:57:27.237643" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:57:27.229900" elapsed="8.932331"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:57:36.162231" elapsed="5.156449"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:57:27.229900" elapsed="14.088780"/>
+</kw>
+<kw name="Un Message d'Erreur Doit Etre Visible Apres Une Connexion Incorrecte">
+<kw name="Accéder A La Page De Connexion" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:57:41.343951" level="INFO">Clicking element 'xpath=//a[contains(text(),'Se connecter')]'.</msg>
+<msg time="2026-09-11T16:57:42.706338" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:57:42.706338" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${LIEN SE CONNECTER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:57:41.335949" elapsed="1.370389">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<status status="FAIL" start="2026-09-11T16:57:41.335949" elapsed="1.370389">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Saisir Le Nom D'Utilisateur" owner="commun">
+<arg>${nom utilisateur}</arg>
+<status status="NOT RUN" start="2026-09-11T16:57:42.720531" elapsed="0.000000"/>
+</kw>
+<kw name="Saisir Le Mot De Passe" owner="commun">
+<arg>${mot de passe}</arg>
+<status status="NOT RUN" start="2026-09-11T16:57:42.723041" elapsed="0.000000"/>
+</kw>
+<kw name="Soumette Le Formulaire De Connexion" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:57:42.723041" elapsed="0.000000"/>
+</kw>
+<kw name="Vérifier Que Le Message d'Erreur Est Visible">
+<status status="NOT RUN" start="2026-09-11T16:57:42.723041" elapsed="0.000000"/>
+</kw>
+<arg>azerty</arg>
+<arg>robot</arg>
+<status status="FAIL" start="2026-09-11T16:57:41.335949" elapsed="1.387092">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-11T16:57:42.723041" elapsed="3.205435"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:57:27.229900" elapsed="18.698576">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<test id="s1-s2-t5" name="Test Utilisateur Valide Mot De Passe Non Valide" line="16">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:57:45.937150" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:57:45.937150" elapsed="15.263418"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:58:01.200568" elapsed="0.744497"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:57:45.937150" elapsed="16.007915"/>
+</kw>
+<kw name="Un Message d'Erreur Doit Etre Visible Apres Une Connexion Incorrecte">
+<kw name="Accéder A La Page De Connexion" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:58:02.020376" level="INFO">Clicking element 'xpath=//a[contains(text(),'Se connecter')]'.</msg>
+<msg time="2026-09-11T16:58:03.139834" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:58:03.139834" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${LIEN SE CONNECTER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:58:02.020376" elapsed="1.119458">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<status status="FAIL" start="2026-09-11T16:58:02.006436" elapsed="1.147163">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Saisir Le Nom D'Utilisateur" owner="commun">
+<arg>${nom utilisateur}</arg>
+<status status="NOT RUN" start="2026-09-11T16:58:03.156315" elapsed="0.000000"/>
+</kw>
+<kw name="Saisir Le Mot De Passe" owner="commun">
+<arg>${mot de passe}</arg>
+<status status="NOT RUN" start="2026-09-11T16:58:03.156315" elapsed="0.000000"/>
+</kw>
+<kw name="Soumette Le Formulaire De Connexion" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:58:03.156315" elapsed="0.000000"/>
+</kw>
+<kw name="Vérifier Que Le Message d'Erreur Est Visible">
+<status status="NOT RUN" start="2026-09-11T16:58:03.156315" elapsed="0.000000"/>
+</kw>
+<arg>robot</arg>
+<arg>azerty</arg>
+<status status="FAIL" start="2026-09-11T16:58:02.006436" elapsed="1.149879">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-11T16:58:03.156315" elapsed="2.913838"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:57:45.932586" elapsed="20.139844">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<test id="s1-s2-t6" name="Test Utilisateur Non Valide Mot De Passe Non Valide" line="17">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:58:06.072430" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:58:06.072430" elapsed="13.832891"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:58:19.905637" elapsed="0.427992"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:58:06.072430" elapsed="14.261199"/>
+</kw>
+<kw name="Un Message d'Erreur Doit Etre Visible Apres Une Connexion Incorrecte">
+<kw name="Accéder A La Page De Connexion" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:58:20.353449" level="INFO">Clicking element 'xpath=//a[contains(text(),'Se connecter')]'.</msg>
+<msg time="2026-09-11T16:58:21.905739" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:58:21.905739" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${LIEN SE CONNECTER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:58:20.353449" elapsed="1.569104">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<status status="FAIL" start="2026-09-11T16:58:20.349764" elapsed="1.572789">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Saisir Le Nom D'Utilisateur" owner="commun">
+<arg>${nom utilisateur}</arg>
+<status status="NOT RUN" start="2026-09-11T16:58:21.922553" elapsed="0.000000"/>
+</kw>
+<kw name="Saisir Le Mot De Passe" owner="commun">
+<arg>${mot de passe}</arg>
+<status status="NOT RUN" start="2026-09-11T16:58:21.922553" elapsed="0.000000"/>
+</kw>
+<kw name="Soumette Le Formulaire De Connexion" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:58:21.922553" elapsed="0.000000"/>
+</kw>
+<kw name="Vérifier Que Le Message d'Erreur Est Visible">
+<status status="NOT RUN" start="2026-09-11T16:58:21.922553" elapsed="0.000000"/>
+</kw>
+<arg>azerty</arg>
+<arg>azerty</arg>
+<status status="FAIL" start="2026-09-11T16:58:20.341642" elapsed="1.595010">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-11T16:58:21.936652" elapsed="2.907937"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:58:06.072430" elapsed="18.772159">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<test id="s1-s2-t7" name="Test Utilisateur Vide Mot De Passe Non Valide" line="18">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:58:24.855341" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:58:24.854359" elapsed="14.082175"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:58:38.944538" elapsed="0.613350"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:58:24.844589" elapsed="14.727485"/>
+</kw>
+<kw name="Un Message d'Erreur Doit Etre Visible Apres Une Connexion Incorrecte">
+<kw name="Accéder A La Page De Connexion" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:58:39.587341" level="INFO">Clicking element 'xpath=//a[contains(text(),'Se connecter')]'.</msg>
+<msg time="2026-09-11T16:58:40.801334" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:58:40.801334" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${LIEN SE CONNECTER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:58:39.587341" elapsed="1.229620">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<status status="FAIL" start="2026-09-11T16:58:39.587341" elapsed="1.229620">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Saisir Le Nom D'Utilisateur" owner="commun">
+<arg>${nom utilisateur}</arg>
+<status status="NOT RUN" start="2026-09-11T16:58:40.816961" elapsed="0.000000"/>
+</kw>
+<kw name="Saisir Le Mot De Passe" owner="commun">
+<arg>${mot de passe}</arg>
+<status status="NOT RUN" start="2026-09-11T16:58:40.816961" elapsed="0.000000"/>
+</kw>
+<kw name="Soumette Le Formulaire De Connexion" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:58:40.816961" elapsed="0.000000"/>
+</kw>
+<kw name="Vérifier Que Le Message d'Erreur Est Visible">
+<status status="NOT RUN" start="2026-09-11T16:58:40.816961" elapsed="0.000000"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>azerty</arg>
+<status status="FAIL" start="2026-09-11T16:58:39.575362" elapsed="1.241599">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-11T16:58:40.832583" elapsed="3.020467"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:58:24.844589" elapsed="19.010698">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<test id="s1-s2-t8" name="Test Utilisateur Non valide Mot De Passe Vide" line="19">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:58:43.855287" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:58:43.855287" elapsed="18.583570"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:59:02.446862" elapsed="1.775836"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:58:43.855287" elapsed="20.367411"/>
+</kw>
+<kw name="Un Message d'Erreur Doit Etre Visible Apres Une Connexion Incorrecte">
+<kw name="Accéder A La Page De Connexion" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:59:04.303252" level="INFO">Clicking element 'xpath=//a[contains(text(),'Se connecter')]'.</msg>
+<msg time="2026-09-11T16:59:05.424096" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:59:05.424096" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${LIEN SE CONNECTER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:59:04.295832" elapsed="1.128264">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<status status="FAIL" start="2026-09-11T16:59:04.295832" elapsed="1.128264">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Saisir Le Nom D'Utilisateur" owner="commun">
+<arg>${nom utilisateur}</arg>
+<status status="NOT RUN" start="2026-09-11T16:59:05.424096" elapsed="0.000000"/>
+</kw>
+<kw name="Saisir Le Mot De Passe" owner="commun">
+<arg>${mot de passe}</arg>
+<status status="NOT RUN" start="2026-09-11T16:59:05.440309" elapsed="0.000000"/>
+</kw>
+<kw name="Soumette Le Formulaire De Connexion" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:59:05.440309" elapsed="0.000000"/>
+</kw>
+<kw name="Vérifier Que Le Message d'Erreur Est Visible">
+<status status="NOT RUN" start="2026-09-11T16:59:05.440309" elapsed="0.000000"/>
+</kw>
+<arg>azerty</arg>
+<arg>${EMPTY}</arg>
+<status status="FAIL" start="2026-09-11T16:59:04.288878" elapsed="1.151431">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-11T16:59:05.440309" elapsed="3.106349"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:58:43.855287" elapsed="24.691371">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<status status="FAIL" start="2026-09-11T16:56:26.004590" elapsed="162.549756"/>
+</suite>
+<suite id="s1-s3" name="Se-Connecter-Valides" source="C:\Users\M'hamed\OneDrive\Desktop\github-action\tests_ihm\se-connecter-valides.robot">
+<test id="s1-s3-t1" name="Le Tableau De Bord Doit Etre Visible Apres Une Connexion Réussie" line="7">
+<kw name="Effectuer Une Connection Réussie" type="SETUP">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:59:08.606340" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:59:08.606340" elapsed="14.717813"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:59:23.324153" elapsed="0.797693"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:59:08.606340" elapsed="15.515506"/>
+</kw>
+<kw name="Accéder A La Page De Connexion" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:59:24.121846" level="INFO">Clicking element 'xpath=//a[contains(text(),'Se connecter')]'.</msg>
+<msg time="2026-09-11T16:59:25.088245" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:59:25.102379" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${LIEN SE CONNECTER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:59:24.121846" elapsed="0.980533">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<status status="FAIL" start="2026-09-11T16:59:24.121846" elapsed="0.989125">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Saisir Le Nom D'Utilisateur" owner="commun">
+<arg>${UTILISATEUR VALIDE}</arg>
+<status status="NOT RUN" start="2026-09-11T16:59:25.110971" elapsed="0.000000"/>
+</kw>
+<kw name="Saisir Le Mot De Passe" owner="commun">
+<arg>${MOT DE PASSE VALIDE}</arg>
+<status status="NOT RUN" start="2026-09-11T16:59:25.110971" elapsed="0.000000"/>
+</kw>
+<kw name="Soumette Le Formulaire De Connexion" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:59:25.110971" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:59:08.597914" elapsed="16.521159">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Effectuer Une Déconnexion Réussie" type="TEARDOWN">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:59:25.121527" level="INFO">Clicking link 'xpath=(//a[contains(text(),'Se déconnecter')])[3]'.</msg>
+<msg time="2026-09-11T16:59:25.769664" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:59:25.770584" level="FAIL">Link with locator 'xpath=(//a[contains(text(),'Se déconnecter')])[3]' not found.</msg>
+<arg>${LIEN SE DECONECTER}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:59:25.121527" elapsed="0.651947">Link with locator 'xpath=(//a[contains(text(),'Se déconnecter')])[3]' not found.</status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${LIEN SE DECONECTER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2026-09-11T16:59:25.773474" elapsed="0.263904"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:59:25.121527" elapsed="0.915851">Link with locator 'xpath=(//a[contains(text(),'Se déconnecter')])[3]' not found.</status>
+</kw>
+<status status="FAIL" start="2026-09-11T16:59:08.597914" elapsed="17.459820">Setup failed:
+ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+
+
+Also teardown failed:
+Link with locator 'xpath=(//a[contains(text(),'Se déconnecter')])[3]' not found.</status>
+</test>
+<test id="s1-s3-t2" name="Le Lien De Connexion Devrait Etre Visible Après Une Déconnexion Réussie" line="12">
+<kw name="Effectuer Une Connection Réussie" type="SETUP">
+<kw name="Ouvrir Le Navigateur Et Accéder A L'Application" owner="commun">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:59:26.090901" level="INFO">Opening browser 'chrome' to base url 'http://livraison3.testacademy.fr'.</msg>
+<arg>${URL}</arg>
+<arg>${NAVIGATEUR}</arg>
+<arg>options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-11T16:59:26.090901" elapsed="17.003622"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-11T16:59:43.102522" elapsed="0.840812"/>
+</kw>
+<status status="PASS" start="2026-09-11T16:59:26.090901" elapsed="17.855777"/>
+</kw>
+<kw name="Accéder A La Page De Connexion" owner="commun">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-11T16:59:43.953699" level="INFO">Clicking element 'xpath=//a[contains(text(),'Se connecter')]'.</msg>
+<msg time="2026-09-11T16:59:46.702065" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-11T16:59:46.702065" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</msg>
+<arg>${LIEN SE CONNECTER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-11T16:59:43.953699" elapsed="2.750902">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<status status="FAIL" start="2026-09-11T16:59:43.946678" elapsed="2.757923">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<kw name="Saisir Le Nom D'Utilisateur" owner="commun">
+<arg>${UTILISATEUR VALIDE}</arg>
+<status status="NOT RUN" start="2026-09-11T16:59:46.704601" elapsed="0.000000"/>
+</kw>
+<kw name="Saisir Le Mot De Passe" owner="commun">
+<arg>${MOT DE PASSE VALIDE}</arg>
+<status status="NOT RUN" start="2026-09-11T16:59:46.704601" elapsed="0.000000"/>
+</kw>
+<kw name="Soumette Le Formulaire De Connexion" owner="commun">
+<status status="NOT RUN" start="2026-09-11T16:59:46.704601" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-09-11T16:59:26.090901" elapsed="20.613700">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</kw>
+<status status="FAIL" start="2026-09-11T16:59:26.075943" elapsed="20.745973">Setup failed:
+ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=152.0.7977.84); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6a19ee035+5745]
+	chromedriver!(No symbol) [0x7ff6a1916a90]
+	chromedriver!(No symbol) [0x7ff6a1745b66]
+	chromedriver!(No symbol) [0x7ff6a17a2244]
+	chromedriver!(No symbol) [0x7ff6a1794d88]
+	chromedriver!(No symbol) [0x7ff6a17c95ca]
+	chromedriver!(No symbol) [0x7ff6a1794606]
+	chromedriver!(No symbol) [0x7ff6a17ee502]
+	chromedriver!(No symbol) [0x7ff6a1792e4b]
+	chromedriver!(No symbol) [0x7ff6a1793d83]
+	chromedriver!GetHandleVerifier [0x7ff6a1e02f8b+41a69b]
+	chromedriver!GetHandleVerifier [0x7ff6a1e30132+447842]
+	chromedriver!GetHandleVerifier [0x7ff6a1e23e7e+43b58e]
+	chromedriver!GetHandleVerifier [0x7ff6a1ae3f5e+fb66e]
+	chromedriver!(No symbol) [0x7ff6a192419c]
+	chromedriver!(No symbol) [0x7ff6a191fdd4]
+	chromedriver!(No symbol) [0x7ff6a191ff64]
+	chromedriver!(No symbol) [0x7ff6a190a91c]
+	KERNEL32!BaseThreadInitThunk [0x7ffc83037374+14]
+	ntdll!RtlUserThreadStart [0x7ffc8317cc91+21]
+</status>
+</test>
+<meta name="Title">RobotframeworkGHIZLANEELAZKALANIReport</meta>
+<status status="FAIL" start="2026-09-11T16:59:08.554939" elapsed="38.372038"/>
+</suite>
+<status status="FAIL" start="2026-09-11T16:54:19.257763" elapsed="327.860765"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="14" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests Ihm" id="s1" pass="0" fail="14" skip="0">Tests Ihm</stat>
+<stat name="Hote" id="s1-s1" pass="0" fail="4" skip="0">Tests Ihm.Hote</stat>
+<stat name="Se-Connecter-Invalides" id="s1-s2" pass="0" fail="8" skip="0">Tests Ihm.Se-Connecter-Invalides</stat>
+<stat name="Se-Connecter-Valides" id="s1-s3" pass="0" fail="2" skip="0">Tests Ihm.Se-Connecter-Valides</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

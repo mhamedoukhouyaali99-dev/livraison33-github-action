@@ -80,6 +80,7 @@ jobs:
           python-version: '3.11'
 
       - name: Installer Chrome stable
+        id: setup-chrome
         uses: browser-actions/setup-chrome@v2
         with:
           chrome-version: stable
@@ -95,6 +96,8 @@ jobs:
           chromedriver --version
 
       - name: Executer les tests IHM dans un affichage virtuel
+        env:
+          CHROME_BIN: ${{ steps.setup-chrome.outputs.chrome-path }}
         run: xvfb-run --auto-servernum python -m robot --outputdir reports/ihm tests_ihm
 
       - name: Conserver les rapports IHM
