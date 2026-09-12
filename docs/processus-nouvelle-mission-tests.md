@@ -2,6 +2,8 @@
 
 Ce processus s'applique lorsqu'une nouvelle fonctionnalite `X` doit etre testee.
 
+Pour apprendre a collaborer avec une IA pendant chaque phase, consulter [cours-collaboration-ia-qa.md](cours-collaboration-ia-qa.md).
+
 ## Entree de mission
 
 Avant de commencer, enregistrer :
