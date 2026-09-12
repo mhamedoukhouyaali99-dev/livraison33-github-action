@@ -4,11 +4,13 @@ Resource    commun.resource
 Metadata    Title     RobotframeworkGHIZLANEELAZKALANIReport
 
 *** Test Cases ***
+# Vérifie qu'une connexion valide ouvre le tableau de bord attendu.
 Le Tableau De Bord Doit Etre Visible Apres Une Connexion Réussie
     [Setup]       Effectuer Une Connection Réussie
     Vérifier Que Le Tableau De Bord Est Visible
     [Teardown]    Effectuer Une Déconnexion Réussie
 
+# Vérifie qu'une déconnexion réussie rend le lien de connexion disponible.
 Le Lien De Connexion Devrait Etre Visible Après Une Déconnexion Réussie
     [Setup]    Effectuer Une Connection Réussie
     Vérifier Que Le Tableau De Bord Est Visible

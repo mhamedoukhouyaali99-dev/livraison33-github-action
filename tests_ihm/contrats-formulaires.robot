@@ -5,6 +5,7 @@ Test Setup      Ouvrir Le Navigateur Et Accéder A L'Application
 Test Teardown   Close Browser
 
 *** Test Cases ***
+# Vérifie que les champs nécessaires à l'inscription existent une seule fois et sont visibles.
 Les Champs D'Inscription Sont Uniques Et Accessibles
     Accéder Au Formulaire D'Inscription Hote
     Le Locator Doit Pointer Vers Un Seul Element    ${CHAMP NOM INSCRIPTION}
@@ -16,12 +17,14 @@ Les Champs D'Inscription Sont Uniques Et Accessibles
     Element Should Be Visible    ${CHAMP MOT DE PASSE INSCRIPTION}
     Element Should Be Visible    ${CHAMP CONFIRMATION INSCRIPTION}
 
+# Vérifie que l'utilisateur doit accepter les conditions avant de pouvoir s'inscrire.
 Le Consentement Est Un Champ Obligatoire
     Accéder Au Formulaire D'Inscription Hote
     Le Locator Doit Pointer Vers Un Seul Element    ${CASE CONDITIONS INSCRIPTION}
     ${required}=    Get Element Attribute    ${CASE CONDITIONS INSCRIPTION}    required
     Should Be Equal As Strings    ${required}    true
 
+# Vérifie que les champs du contact hôte existent et que l'adresse email utilise le bon type HTML.
 Les Champs De Contact Ont Les Types Attendus
     Accéder A Une Page Annonce
     Ouvrir Le Formulaire De Contact Hôte

@@ -8,9 +8,13 @@ Test Teardown   Close Browser
 
 *** Test Cases ***
 #cas de test                                       #nom      #email               #téléphone      #message
+# Vérifie qu'un hôte peut envoyer un message complet et obtenir un retour de l'application.
 Test Formulaire Contact Avec Toutes Les Données     ${NOM CONTACT}      ${EMAIL CONTACT}      ${TELEPHONE CONTACT}      ${MESSAGE CONTACT}
+# Vérifie que le formulaire réagit correctement lorsque le nom du contact est absent.
 Test Formulaire Contact Sans Nom                    ${EMPTY}            ${EMAIL CONTACT}      ${TELEPHONE CONTACT}      ${MESSAGE CONTACT}
+# Vérifie que le formulaire réagit correctement lorsque l'email du contact est absent.
 Test Formulaire Contact Sans Email                  ${NOM CONTACT}      ${EMPTY}               ${TELEPHONE CONTACT}      ${MESSAGE CONTACT}
+# Vérifie que le formulaire réagit correctement lorsque le message est absent.
 Test Formulaire Contact Sans Message                ${NOM CONTACT}      ${EMAIL CONTACT}      ${TELEPHONE CONTACT}      ${EMPTY}
 
 
