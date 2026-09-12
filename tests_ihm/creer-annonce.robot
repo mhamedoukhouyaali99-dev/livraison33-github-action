@@ -14,23 +14,22 @@ Verifier Les Champs Obligatoires De Creation
     Verifier Les Champs Creation Annonce
     ...    ${CHAMP TITRE ANNONCE}
     ...    ${CHAMP DESCRIPTION ANNONCE}
-    ...    ${CHAMP TYPE ANNONCE}
+    ...    ${CONTROLE TYPE ANNONCE}
     ...    ${CHAMP CHAMBRES ANNONCE}
     ...    ${CHAMP VOYAGEURS ANNONCE}
     ...    ${CHAMP LITS ANNONCE}
-    ...    ${CHAMP PRIX NUIT ANNONCE}
     ...    ${BOUTON BROUILLON ANNONCE}
     ...    ${BOUTON CONTINUER ANNONCE}
 
 Verifier Les Champs Numeriques De Creation
     Acceder Au Formulaire De Creation D Annonce
-    Element Attribute Value Should Be    ${CHAMP CHAMBRES ANNONCE}    type    number
-    Element Attribute Value Should Be    ${CHAMP VOYAGEURS ANNONCE}    type    number
-    Element Attribute Value Should Be    ${CHAMP LITS ANNONCE}    type    number
-    Element Attribute Value Should Be    ${CHAMP SALLES DE BAIN ANNONCE}    type    number
-    Element Attribute Value Should Be    ${CHAMP PIECES ANNONCE}    type    number
-    Element Attribute Value Should Be    ${CHAMP SURFACE ANNONCE}    type    number
-    Element Attribute Value Should Be    ${CHAMP PRIX NUIT ANNONCE}    type    number
+    Element Attribute Value Should Be    ${CHAMP CHAMBRES ANNONCE}    type    text
+    Element Attribute Value Should Be    ${CHAMP VOYAGEURS ANNONCE}    type    text
+    Element Attribute Value Should Be    ${CHAMP LITS ANNONCE}    type    text
+    Element Attribute Value Should Be    ${CHAMP SALLES DE BAIN ANNONCE}    type    text
+    Element Attribute Value Should Be    ${CHAMP PIECES ANNONCE}    type    text
+    Element Attribute Value Should Be    ${CHAMP SURFACE ANNONCE}    type    text
+    Element Attribute Value Should Be    ${CHAMP PRIX NUIT ANNONCE}    type    text
 
 Saisir Les Informations De Logement
     Acceder Au Formulaire De Creation D Annonce

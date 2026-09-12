@@ -41,10 +41,12 @@ ${CASE CONDITIONS INSCRIPTION}    css=.register_module_wrap input[name="term_con
 ${BOUTON INSCRIPTION}         css=.register_module_wrap button.homey-register-button
 
 # --- Locators Creation Annonce ---
-${LIEN CREER ANNONCE}         xpath=//a[contains(normalize-space(.),'Créer annonce')]
+${LIEN CREER ANNONCE}         xpath=(//a[contains(@href,'/add-listing/') and contains(normalize-space(.),'Créer annonce')])[last()]
 ${FORMULAIRE CREATION ANNONCE}    id=submit_listing_form
 ${CHAMP TITRE ANNONCE}        id=listing_title
-${CHAMP DESCRIPTION ANNONCE}    id=description
+${CHAMP DESCRIPTION ANNONCE}    id=description_ifr
+${ZONE DESCRIPTION ANNONCE}      css=body#tinymce
+${CONTROLE TYPE ANNONCE}         xpath=//select[@id='listing_type']/preceding-sibling::button
 ${CHAMP TYPE ANNONCE}         id=listing_type
 ${CHAMP CHAMBRES ANNONCE}     id=listing_bedrooms
 ${CHAMP VOYAGEURS ANNONCE}    id=guests
@@ -174,6 +176,9 @@ Acceder Au Formulaire De Creation D Annonce
     Wait Until Location Contains    /add-listing/    timeout=30s
     Wait Until Element Is Visible    ${FORMULAIRE CREATION ANNONCE}    timeout=30s
 
+Saisir La Description De L Annonce
+    Execute Javascript    document.getElementById('description_ifr').contentDocument.body.innerHTML = arguments[0];    ARGUMENTS    ${DESCRIPTION ANNONCE}
+
 Verifier Les Champs Creation Annonce
     [Arguments]    @{locators}
     FOR    ${locator}    IN    @{locators}
@@ -184,7 +189,7 @@ Verifier Les Champs Creation Annonce
 
 Remplir Les Informations Minimales De L Annonce
     Input Text    ${CHAMP TITRE ANNONCE}    ${TITRE ANNONCE}
-    Input Text    ${CHAMP DESCRIPTION ANNONCE}    ${DESCRIPTION ANNONCE}
+    Saisir La Description De L Annonce
     Select From List By Label    ${CHAMP TYPE ANNONCE}    ${TYPE ANNONCE}
     Input Text    ${CHAMP CHAMBRES ANNONCE}    ${CHAMBRES ANNONCE}
     Input Text    ${CHAMP VOYAGEURS ANNONCE}    ${VOYAGEURS ANNONCE}

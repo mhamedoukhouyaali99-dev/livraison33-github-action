@@ -1,8 +1,8 @@
 *** Variables ***
 ${URL APPLICATION}                 http://livraison3.testacademy.fr
 ${NAVIGATEUR}                      chrome
-${UTILISATEUR VALIDE}              test
-${MOT DE PASSE VALIDE}             test
+${UTILISATEUR VALIDE}              3di
+${MOT DE PASSE VALIDE}             3di
 ${UTILISATEUR NON VALIDE}          nonvalide
 ${MOT DE PASSE NON VALIDE}         nonvalide
 ${TITRE TABLEAU DE BORD}           Tableau de bord - Livraison 3
