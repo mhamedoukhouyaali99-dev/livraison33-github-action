@@ -32,6 +32,22 @@ Les tests combinent les parcours fonctionnels, les controles de contrat HTML et 
 - Contrats UI : unicite des locators, champs visibles, consentement obligatoire et type email.
 - API : GET, POST et PUT avec controles de statut, structure et donnees principales.
 
+### Couverture API
+
+La suite `tests_api/test-api.robot` contient 11 cas :
+
+- GET d'un utilisateur existant et verification des donnees principales ;
+- GET de la collection et verification de la pagination ;
+- GET d'une ressource inexistante (`404`) ;
+- GET sans authentification (`401`) ;
+- POST valide (`201`) et POST sans champs obligatoires (`422`) ;
+- PUT valide sur un utilisateur cree pour le test ;
+- PUT sur une ressource inexistante (`404`) ;
+- PATCH non autorisee (`405`) ;
+- verification de la structure JSON retournee.
+
+La suppression (`DELETE`) n'est pas executee automatiquement car elle detruit une donnee distante partagee. Elle doit etre testee avec un environnement et des donnees dedies.
+
 ## Garde-fous contre les erreurs de locator
 
 1. Scoper les champs au formulaire ou a la modale concernee.
