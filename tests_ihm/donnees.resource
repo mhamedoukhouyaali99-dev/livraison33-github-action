@@ -15,3 +15,15 @@ ${NOM INSCRIPTION}                 ALI_TEST
 ${EMAIL INSCRIPTION}               ali@test.fr
 ${MOT DE PASSE INSCRIPTION}        Ali123!
 ${CONFIRMATION INSCRIPTION}        Ali123!
+${PROFIL PRENOM}                   TestPrenom
+${PROFIL NOM}                      TestNom
+${PROFIL LANGUE NATIVE}            Francais
+${PROFIL AUTRE LANGUE}             Anglais
+${PROFIL BIO}                      Profil automatise
+${PROFIL RUE}                      10 rue du Test
+${PROFIL APPARTEMENT}              12
+${PROFIL VILLE}                    Paris
+${PROFIL ETAT}                     Ile-de-France
+${PROFIL CODE POSTAL}              75001
+${PROFIL QUARTIER}                 Centre
+${PROFIL PAYS}                     France

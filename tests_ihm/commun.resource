@@ -40,6 +40,23 @@ ${CHAMP CONFIRMATION INSCRIPTION}    css=.register_module_wrap input[name="regis
 ${CASE CONDITIONS INSCRIPTION}    css=.register_module_wrap input[name="term_condition"]
 ${BOUTON INSCRIPTION}         css=.register_module_wrap button.homey-register-button
 
+# --- Locators Profil ---
+${PAGE PROFIL}                 css=#body-area
+${CHAMP PROFIL PRENOM}         id=firstname
+${CHAMP PROFIL NOM}            id=lastname
+${CHAMP PROFIL LANGUE NATIVE}  id=native_language
+${CHAMP PROFIL AUTRE LANGUE}   id=other_language
+${CHAMP PROFIL BIO}            id=bio
+${BOUTON ENREGISTRER PROFIL}   xpath=//input[@id='firstname']/ancestor::div[contains(@class,'block')][1]//button[contains(@class,'homey_profile_save')]
+${CHAMP ADRESSE RUE}           id=street_address
+${CHAMP ADRESSE APPARTEMENT}   id=apt_suit
+${CHAMP ADRESSE VILLE}         id=city
+${CHAMP ADRESSE ETAT}          id=state
+${CHAMP ADRESSE CODE POSTAL}   id=zipcode
+${CHAMP ADRESSE QUARTIER}      id=neighborhood
+${CHAMP ADRESSE PAYS}          id=country
+${BOUTON ENREGISTRER ADRESSE}  xpath=//input[@id='street_address']/ancestor::div[contains(@class,'block')][1]//button[contains(@class,'homey_profile_save')]
+
 
 *** Keywords ***
 # --- Keywords Généraux ---
@@ -105,6 +122,18 @@ Accéder Au Formulaire D'Inscription Hote
     Click Element    ${LIEN DEVENIR HOTE}
     Wait Until Location Contains    /become-a-host/    timeout=30s
     Wait Until Element Is Visible    ${FORMULAIRE INSCRIPTION}    timeout=30s
+
+Accéder Au Profil
+    Go To    ${URL APPLICATION}/index.php/profile/
+    Wait Until Location Contains    /profile/    timeout=30s
+    Wait Until Element Is Visible    ${PAGE PROFIL}    timeout=30s
+
+Se Connecter Avec Le Compte Valide
+    Accéder A La Page De Connexion
+    Saisir Le Nom D'Utilisateur    ${UTILISATEUR VALIDE}
+    Saisir Le Mot De Passe         ${MOT DE PASSE VALIDE}
+    Soumette Le Formulaire De Connexion
+    Wait Until Element Is Not Visible    ${CHAMP UTILISATEUR}    timeout=15s
 
 Remplir Le Formulaire D'Inscription Hote
     [Arguments]    ${nom utilisateur}    ${email}    ${mot de passe}    ${confirmation}    ${conditions}=TRUE

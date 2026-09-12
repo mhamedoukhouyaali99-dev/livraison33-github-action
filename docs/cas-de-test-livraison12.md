@@ -112,3 +112,12 @@
 - Ne pas utiliser de mots de passe ou de comptes reutilises en production.
 - Remplacer les selecteurs XPath de position par des attributs stables (`id`, `name`, `data-*`).
 - Nettoyer les comptes de test apres execution, sauf pour les tests de suppression.
+
+## Cas automatises
+
+- TC-001, TC-002, TC-005, TC-006, TC-007 : `tests_ihm/inscription-hote.robot` et `tests_ihm/contrats-formulaires.robot`
+- TC-008, TC-009 : `tests_ihm/se-connecter-valides.robot` et `tests_ihm/se-connecter-invalides.robot`
+- TC-010, TC-011 : `tests_ihm/profil.robot`
+- TC-016, TC-017, TC-018, TC-019 : `tests_ihm/hote.robot`
+
+Les cas TC-003, TC-004, TC-012, TC-013, TC-014, TC-015 et TC-020 a TC-023 necessitent encore des donnees dediees ou une clarification du comportement attendu avant automatisation.
