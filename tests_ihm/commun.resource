@@ -42,7 +42,7 @@ ${BOUTON SOUMETTRE CONTACT}    css=.contact_listing_host
 ${MESSAGE RESULTAT CONTACT}    css=.homey_contact_messages
 
 # --- Locators Inscription Hote ---
-${LIEN DEVENIR HOTE}          linkText=Devenir un hôte
+${LIEN DEVENIR HOTE}          css=a.btn-add-new-listing
 ${FORMULAIRE INSCRIPTION}     css=.register_module_wrap form
 ${CHAMP NOM INSCRIPTION}      name=username
 ${CHAMP EMAIL INSCRIPTION}    name=useremail
