@@ -24,6 +24,25 @@ Les tests combinent les parcours fonctionnels, les controles de contrat HTML et 
 - Un test de contrat verifie qu'un locator retourne exactement un element, afin d'eviter qu'un element cache soit utilise.
 - Les limites metier non documentees doivent etre confirmees avant d'ajouter des longueurs arbitraires.
 
+## Regle de retest cible
+
+Lorsqu'une fonctionnalite est modifiee ou qu'un test echoue, on ne relance pas tout le projet immediatement.
+
+1. Identifier la fonctionnalite et le fichier de test concernes.
+2. Executer uniquement la suite de cette fonctionnalite.
+3. Corriger le probleme dans le meme perimetre.
+4. Relancer la meme suite jusqu'a obtention d'un resultat confirme.
+5. Elargir les tests uniquement si la modification touche un composant partage ou un contrat commun.
+
+Exemples :
+
+- Modification d'un locator IHM : `python -m robot tests_ihm/contrats-formulaires.robot` puis la suite IHM concernee.
+- Modification de l'inscription : `python -m robot tests_ihm/inscription-hote.robot`.
+- Modification de l'API : `python -m robot tests_api/test-api.robot`.
+- Modification d'un test Python API : `python -m pytest tests/test_api/test_site_routes.py -q`.
+
+Cette regle reduit le temps de validation et evite de confondre une erreur de fonctionnalite avec une erreur provenant d'un autre module.
+
 ## Lecture de la couverture actuelle
 
 - Connexion : cas nominal, vide, identifiant inconnu, mot de passe incorrect et combinaisons des deux.
