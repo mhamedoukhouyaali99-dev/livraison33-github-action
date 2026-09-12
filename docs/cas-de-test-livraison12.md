@@ -121,3 +121,7 @@
 - TC-016, TC-017, TC-018, TC-019 : `tests_ihm/hote.robot`
 
 Les cas TC-003, TC-004, TC-012, TC-013, TC-014, TC-015 et TC-020 a TC-023 necessitent encore des donnees dediees ou une clarification du comportement attendu avant automatisation.
+
+La suite profil contient maintenant 11 tests automatises : acces authentifie, unicite et visibilite des champs, persistance des informations personnelles et de l'adresse, boutons de sauvegarde, contact d'urgence, profil public et ouverture puis annulation de la suppression.
+
+Commande de retest cible : `python -m robot tests_ihm/profil.robot`

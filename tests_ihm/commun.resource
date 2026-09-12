@@ -56,6 +56,15 @@ ${CHAMP ADRESSE CODE POSTAL}   id=zipcode
 ${CHAMP ADRESSE QUARTIER}      id=neighborhood
 ${CHAMP ADRESSE PAYS}          id=country
 ${BOUTON ENREGISTRER ADRESSE}  xpath=//input[@id='street_address']/ancestor::div[contains(@class,'block')][1]//button[contains(@class,'homey_profile_save')]
+${CHAMP CONTACT URGENCE NOM}       id=em_contact_name
+${CHAMP CONTACT URGENCE LIEN}      id=em_relationship
+${CHAMP CONTACT URGENCE EMAIL}     id=em_email
+${CHAMP CONTACT URGENCE TELEPHONE}    id=em_phone
+${BOUTON ENREGISTRER CONTACT}      xpath=//input[@id='em_contact_name']/ancestor::div[contains(@class,'col-sm-12')][1]//button[contains(@class,'homey_profile_save')]
+${LIEN VOIR PROFIL}                xpath=//strong[contains(normalize-space(.),'Voir le profil')]/ancestor::a[1]
+${BOUTON SUPPRIMER COMPTE}         css=button.delete_user_account
+${ALERTE SUPPRESSION COMPTE}        id=delete_account_warning
+${BOUTON ANNULER SUPPRESSION}      css=#delete_account_warning button:not(.delete_user_account_confirmed)
 
 
 *** Keywords ***
