@@ -41,6 +41,16 @@ ${BOUTON SOUMETTRE CONTACT}    css=.contact_listing_host
 # Zone d'affichage des messages de succès ou d'erreur dans la modale
 ${MESSAGE RESULTAT CONTACT}    css=.homey_contact_messages
 
+# --- Locators Inscription Hote ---
+${LIEN DEVENIR HOTE}          linkText=Devenir un hôte
+${FORMULAIRE INSCRIPTION}     css=.register_module_wrap form
+${CHAMP NOM INSCRIPTION}      name=username
+${CHAMP EMAIL INSCRIPTION}    name=useremail
+${CHAMP MOT DE PASSE INSCRIPTION}    name=register_pass
+${CHAMP CONFIRMATION INSCRIPTION}    name=register_pass_retype
+${CASE CONDITIONS INSCRIPTION}    name=term_condition
+${BOUTON INSCRIPTION}         css=.homey-register-button
+
 
 *** Keywords ***
 # --- Keywords Généraux ---
@@ -96,3 +106,24 @@ Soumettre Le Formulaire De Contact
 Vérifier Que Le Message De Retour Est Visible
     # Vérifie que la div de message (succès ou erreur) s'affiche après soumission
     Wait Until Element Is Visible    ${MESSAGE RESULTAT CONTACT}    timeout=5s
+
+# --- Keywords Inscription Hote ---
+Accéder Au Formulaire D'Inscription Hote
+    Wait Until Element Is Visible    ${LIEN DEVENIR HOTE}    timeout=30s
+    Scroll Element Into View    ${LIEN DEVENIR HOTE}
+    Click Element    ${LIEN DEVENIR HOTE}
+    Wait Until Element Is Visible    ${FORMULAIRE INSCRIPTION}    timeout=30s
+
+Remplir Le Formulaire D'Inscription Hote
+    [Arguments]    ${nom utilisateur}    ${email}    ${mot de passe}    ${confirmation}    ${conditions}=TRUE
+    Input Text    ${CHAMP NOM INSCRIPTION}    ${nom utilisateur}
+    Input Text    ${CHAMP EMAIL INSCRIPTION}    ${email}
+    Input Password    ${CHAMP MOT DE PASSE INSCRIPTION}    ${mot de passe}
+    Input Password    ${CHAMP CONFIRMATION INSCRIPTION}    ${confirmation}
+    Run Keyword If    '${conditions}' == 'TRUE'    Select Checkbox    ${CASE CONDITIONS INSCRIPTION}
+
+Soumettre L'Inscription Hote
+    Click Button    ${BOUTON INSCRIPTION}
+
+Verifier Que Le Formulaire D'Inscription Reste Visible
+    Wait Until Element Is Visible    ${FORMULAIRE INSCRIPTION}    timeout=10s
