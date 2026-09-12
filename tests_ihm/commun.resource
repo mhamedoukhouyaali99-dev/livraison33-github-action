@@ -98,7 +98,7 @@ Ouvrir Le Navigateur Et Accéder A L'Application
     Wait Until Location Contains    livraison3.testacademy.fr    timeout=30s
 
 Ouvrir Le Navigateur
-    Open Browser    ${URL APPLICATION}    ${NAVIGATEUR}    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")
+    Open Browser    ${URL APPLICATION}    ${NAVIGATEUR}    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--disable-gpu");add_argument("--disable-extensions");add_argument("--no-first-run");add_argument("--no-default-browser-check");add_argument("--window-size=1920,1080")
 
 # --- Keywords Connexion (Existants) ---
 Accéder A La Page De Connexion

@@ -60,7 +60,7 @@ Les Boutons D'Enregistrement Du Profil Sont Disponibles
     Se Connecter Avec Le Compte Valide
     Accéder Au Profil
     ${nombre}=    Get Element Count    css=button.homey_profile_save
-    Should Be Equal As Integers    ${nombre}    3
+    Should Be Equal As Integers    ${nombre}    4
 
 Le Contact D'Urgence Est Disponible
     Se Connecter Avec Le Compte Valide
