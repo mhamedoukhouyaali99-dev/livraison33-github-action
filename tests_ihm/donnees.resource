@@ -27,3 +27,13 @@ ${PROFIL ETAT}                     Ile-de-France
 ${PROFIL CODE POSTAL}              75001
 ${PROFIL QUARTIER}                 Centre
 ${PROFIL PAYS}                     France
+${TITRE ANNONCE}                   Annonce IHM Test
+${DESCRIPTION ANNONCE}             Logement de test pour la validation du parcours de creation.
+${TYPE ANNONCE}                    Appartment
+${CHAMBRES ANNONCE}                2
+${VOYAGEURS ANNONCE}               4
+${LITS ANNONCE}                    2
+${SALLES DE BAIN ANNONCE}          1
+${PIECES ANNONCE}                  3
+${SURFACE ANNONCE}                 60
+${UNITE SURFACE ANNONCE}           m2

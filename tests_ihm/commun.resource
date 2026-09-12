@@ -40,6 +40,27 @@ ${CHAMP CONFIRMATION INSCRIPTION}    css=.register_module_wrap input[name="regis
 ${CASE CONDITIONS INSCRIPTION}    css=.register_module_wrap input[name="term_condition"]
 ${BOUTON INSCRIPTION}         css=.register_module_wrap button.homey-register-button
 
+# --- Locators Creation Annonce ---
+${LIEN CREER ANNONCE}         xpath=//a[contains(normalize-space(.),'Créer annonce')]
+${FORMULAIRE CREATION ANNONCE}    id=submit_listing_form
+${CHAMP TITRE ANNONCE}        id=listing_title
+${CHAMP DESCRIPTION ANNONCE}    id=description
+${CHAMP TYPE ANNONCE}         id=listing_type
+${CHAMP CHAMBRES ANNONCE}     id=listing_bedrooms
+${CHAMP VOYAGEURS ANNONCE}    id=guests
+${CHAMP LITS ANNONCE}         id=beds
+${CHAMP SALLES DE BAIN ANNONCE}    id=baths
+${CHAMP PIECES ANNONCE}       id=listing_rooms
+${CHAMP SURFACE ANNONCE}      id=listing_size
+${CHAMP UNITE SURFACE ANNONCE}    id=listing_size_unit
+${CHAMP PRIX NUIT ANNONCE}    id=night_price
+${CHAMP ADRESSE ANNONCE}      id=listing_address
+${CHAMP VILLE ANNONCE}        id=city
+${CHAMP CODE POSTAL ANNONCE}  id=zip
+${CHAMP PAYS ANNONCE}         id=homey_country
+${BOUTON BROUILLON ANNONCE}  id=save_as_draft
+${BOUTON CONTINUER ANNONCE}  css=#submit_listing_form .btn-step-next
+
 # --- Locators Profil ---
 ${PAGE PROFIL}                 css=#body-area
 ${CHAMP PROFIL PRENOM}         id=firstname
@@ -143,6 +164,44 @@ Se Connecter Avec Le Compte Valide
     Saisir Le Mot De Passe         ${MOT DE PASSE VALIDE}
     Soumette Le Formulaire De Connexion
     Wait Until Element Is Not Visible    ${CHAMP UTILISATEUR}    timeout=15s
+
+Acceder Au Formulaire De Creation D Annonce
+    Se Connecter Avec Le Compte Valide
+    Wait Until Page Contains    Tableau de bord    timeout=30s
+    Wait Until Element Is Visible    ${LIEN CREER ANNONCE}    timeout=30s
+    Scroll Element Into View    ${LIEN CREER ANNONCE}
+    Click Element    ${LIEN CREER ANNONCE}
+    Wait Until Location Contains    /add-listing/    timeout=30s
+    Wait Until Element Is Visible    ${FORMULAIRE CREATION ANNONCE}    timeout=30s
+
+Verifier Les Champs Creation Annonce
+    [Arguments]    @{locators}
+    FOR    ${locator}    IN    @{locators}
+        ${nombre}=    Get Element Count    ${locator}
+        Should Be Equal As Integers    ${nombre}    1
+        Element Should Be Visible    ${locator}
+    END
+
+Remplir Les Informations Minimales De L Annonce
+    Input Text    ${CHAMP TITRE ANNONCE}    ${TITRE ANNONCE}
+    Input Text    ${CHAMP DESCRIPTION ANNONCE}    ${DESCRIPTION ANNONCE}
+    Select From List By Label    ${CHAMP TYPE ANNONCE}    ${TYPE ANNONCE}
+    Input Text    ${CHAMP CHAMBRES ANNONCE}    ${CHAMBRES ANNONCE}
+    Input Text    ${CHAMP VOYAGEURS ANNONCE}    ${VOYAGEURS ANNONCE}
+    Input Text    ${CHAMP LITS ANNONCE}    ${LITS ANNONCE}
+    Input Text    ${CHAMP SALLES DE BAIN ANNONCE}    ${SALLES DE BAIN ANNONCE}
+    Input Text    ${CHAMP PIECES ANNONCE}    ${PIECES ANNONCE}
+    Input Text    ${CHAMP SURFACE ANNONCE}    ${SURFACE ANNONCE}
+    Input Text    ${CHAMP UNITE SURFACE ANNONCE}    ${UNITE SURFACE ANNONCE}
+
+Verifier Les Valeurs Des Informations De L Annonce
+    Textfield Value Should Be    ${CHAMP TITRE ANNONCE}    ${TITRE ANNONCE}
+    Textfield Value Should Be    ${CHAMP CHAMBRES ANNONCE}    ${CHAMBRES ANNONCE}
+    Textfield Value Should Be    ${CHAMP VOYAGEURS ANNONCE}    ${VOYAGEURS ANNONCE}
+    Textfield Value Should Be    ${CHAMP LITS ANNONCE}    ${LITS ANNONCE}
+    Textfield Value Should Be    ${CHAMP SALLES DE BAIN ANNONCE}    ${SALLES DE BAIN ANNONCE}
+    Textfield Value Should Be    ${CHAMP PIECES ANNONCE}    ${PIECES ANNONCE}
+    Textfield Value Should Be    ${CHAMP SURFACE ANNONCE}    ${SURFACE ANNONCE}
 
 Remplir Le Formulaire D'Inscription Hote
     [Arguments]    ${nom utilisateur}    ${email}    ${mot de passe}    ${confirmation}    ${conditions}=TRUE
