@@ -52,6 +52,8 @@ Les donnees reutilisables sont stockees dans des fichiers `resource` dedies :
 
 Les fichiers de test ne doivent pas recopier ces valeurs. Pour modifier un jeu de donnees, modifier uniquement la ressource correspondant a la fonctionnalite, puis executer le retest cible associe.
 
+Le processus complet d'une nouvelle mission est decrit dans [processus-nouvelle-mission-tests.md](processus-nouvelle-mission-tests.md) : analyse, conception, implementation, execution ciblee et cloture avec push GitHub.
+
 ## Lecture de la couverture actuelle
 
 - Connexion : cas nominal, vide, identifiant inconnu, mot de passe incorrect et combinaisons des deux.
