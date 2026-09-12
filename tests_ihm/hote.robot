@@ -8,10 +8,10 @@ Test Teardown   Close Browser
 
 *** Test Cases ***
 #cas de test                                       #nom      #email               #téléphone      #message
-Test Formulaire Contact Avec Toutes Les Données     Jean      jean@test.fr         0600000000      Bonjour, je suis intéressé.
-Test Formulaire Contact Sans Nom                     ${EMPTY}    jean@test.fr        0600000000      Bonjour, je suis intéressé.
-Test Formulaire Contact Sans Email                   Jean        ${EMPTY}            0600000000      Bonjour, je suis intéressé.
-Test Formulaire Contact Sans Message                 Jean        jean@test.fr        0600000000      ${EMPTY}
+Test Formulaire Contact Avec Toutes Les Données     ${NOM CONTACT}      ${EMAIL CONTACT}      ${TELEPHONE CONTACT}      ${MESSAGE CONTACT}
+Test Formulaire Contact Sans Nom                    ${EMPTY}            ${EMAIL CONTACT}      ${TELEPHONE CONTACT}      ${MESSAGE CONTACT}
+Test Formulaire Contact Sans Email                  ${NOM CONTACT}      ${EMPTY}               ${TELEPHONE CONTACT}      ${MESSAGE CONTACT}
+Test Formulaire Contact Sans Message                ${NOM CONTACT}      ${EMAIL CONTACT}      ${TELEPHONE CONTACT}      ${EMPTY}
 
 
 *** Keywords ***

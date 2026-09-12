@@ -43,6 +43,15 @@ Exemples :
 
 Cette regle reduit le temps de validation et evite de confondre une erreur de fonctionnalite avec une erreur provenant d'un autre module.
 
+## Ressources de donnees
+
+Les donnees reutilisables sont stockees dans des fichiers `resource` dedies :
+
+- `tests_api/donnees.resource` : URL API, cle d'authentification, identifiants et donnees utilisateur API ;
+- `tests_ihm/donnees.resource` : URL application, compte de connexion, annonce et donnees des formulaires IHM.
+
+Les fichiers de test ne doivent pas recopier ces valeurs. Pour modifier un jeu de donnees, modifier uniquement la ressource correspondant a la fonctionnalite, puis executer le retest cible associe.
+
 ## Lecture de la couverture actuelle
 
 - Connexion : cas nominal, vide, identifiant inconnu, mot de passe incorrect et combinaisons des deux.

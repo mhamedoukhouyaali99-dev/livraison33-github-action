@@ -1,32 +1,21 @@
 *** Settings ***
 Library     SeleniumLibrary
+Resource    donnees.resource
 
 
 
 
 *** Variables ***
-# --- Configuration de base ---
-${URL}            http://livraison3.testacademy.fr
-${NAVIGATEUR}      chrome
-
 # --- Locators Connexion (Existants) ---
 ${LIEN SE CONNECTER}     css=a[data-target="#modal-login"]
 ${MODAL CONNEXION}      css=#modal-login
 ${CHAMP UTILISATEUR}    css=#modal-login input[name="username"]
 ${CHAMP DE MOT DE PASSE}    css=#modal-login input[name="password"]
-${UTILISATEUR VALIDE}      test 
-${MOT DE PASSE VALIDE}     test
 ${BOUTON SE CONNECTER}     css=#modal-login button.homey_login_button
-${TITRE PAGE TABLEAU DE BORD}    Tableau de bord - Livraison 3
 ${LIEN SE DECONECTER}         xpath=//a[contains(normalize-space(.),'Se déconnecter')]
-${UTILISATEUR NON VALIDE}     nonvalide
-${MOT DE PASSE NON VALIDE}     nonvalide
 ${ESPACE POUR AFFICHER LES ERREURS}  css=#modal-login .error
 
 # --- NOUVEAUX LOCATORS & VARIABLES (Feature Contacter Hôte) ---
-# URL directe vers l'annonce "Beautiful Cove" identifiée dans le fichier HTML
-${URL ANNONCE}    http://livraison3.testacademy.fr/index.php/listing/beautiful-cove/
-
 # Bouton dans la sidebar droite (version desktop)
 ${BOUTON CONTACTER HOTE SIDEBAR}    css=button[data-target="#modal-contact-host"]
 
@@ -60,7 +49,7 @@ Ouvrir Le Navigateur Et Accéder A L'Application
     Wait Until Location Contains    livraison3.testacademy.fr    timeout=30s
 
 Ouvrir Le Navigateur
-    Open Browser    ${URL}    ${NAVIGATEUR}    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")
+    Open Browser    ${URL APPLICATION}    ${NAVIGATEUR}    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")
 
 # --- Keywords Connexion (Existants) ---
 Accéder A La Page De Connexion

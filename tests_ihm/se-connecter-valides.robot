@@ -26,7 +26,7 @@ Effectuer Une Connection Réussie
 
 Vérifier Que Le Tableau De Bord Est Visible
     Wait Until Element Is Not Visible    ${CHAMP UTILISATEUR}    timeout=10s
-    Title Should Be    ${TITRE PAGE TABLEAU DE BORD}
+    Title Should Be    ${TITRE TABLEAU DE BORD}
 
 Effectuer Une Déconnexion Réussie
     ${clique}=    Execute Javascript    var liens = Array.from(document.querySelectorAll('a')); var lien = liens.find(function(element) { return element.textContent.includes('Se déconnecter') && element.offsetParent !== null; }); if (!lien) { return false; } lien.click(); return true;
