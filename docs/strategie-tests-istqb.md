@@ -1,0 +1,41 @@
+# Strategie de couverture ISTQB
+
+## Objectif
+
+Les tests combinent les parcours fonctionnels, les controles de contrat HTML et les cas negatifs. L'objectif est de couvrir les regles metier sans multiplier les tests redondants.
+
+## Techniques appliquees
+
+| Technique ISTQB | Application dans le projet |
+|---|---|
+| Partition d'equivalence | Identifiants valides, vides et inconnus dans les tests de connexion |
+| Valeurs limites | Champs vides, mot de passe vide, confirmation differente et formulaire incomplet |
+| Table de decision | Combinaisons utilisateur/mot de passe dans `se-connecter-invalides.robot` |
+| Test de transition d'etat | Connexion, tableau de bord, deconnexion et retour au lien de connexion |
+| Test base sur les risques | Priorite aux connexions, inscription, contact hote et locators de formulaire |
+| Tests de contrat | Unicite des locators, visibilite des champs, champ obligatoire et type email |
+
+## Regles de couverture
+
+- Chaque formulaire doit avoir au moins un cas nominal et un cas par classe invalide importante.
+- Chaque soumission doit etre suivie d'une verification fonctionnelle : message, URL, titre ou etat de session.
+- Les champs vides et les valeurs invalides ne doivent pas etre melanges dans un meme cas quand le resultat attendu differe.
+- Les locators doivent etre ancres sur un conteneur fonctionnel, un `id`, un `name` ou un attribut `data-*` stable.
+- Un test de contrat verifie qu'un locator retourne exactement un element, afin d'eviter qu'un element cache soit utilise.
+- Les limites metier non documentees doivent etre confirmees avant d'ajouter des longueurs arbitraires.
+
+## Lecture de la couverture actuelle
+
+- Connexion : cas nominal, vide, identifiant inconnu, mot de passe incorrect et combinaisons des deux.
+- Inscription : champs obligatoires, confirmation differente et consentement absent.
+- Contact hote : formulaire complet et champs obligatoires absents.
+- Contrats UI : unicite des locators, champs visibles, consentement obligatoire et type email.
+- API : GET, POST et PUT avec controles de statut, structure et donnees principales.
+
+## Garde-fous contre les erreurs de locator
+
+1. Scoper les champs au formulaire ou a la modale concernee.
+2. Eviter les XPath de position et les selecteurs bases sur `nth-child`.
+3. Attendre l'URL cible avant de chercher les champs de la page.
+4. Attendre la visibilite avant toute saisie ou soumission.
+5. Tester l'unicite des locators critiques dans `contrats-formulaires.robot`.
