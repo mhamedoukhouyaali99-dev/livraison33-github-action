@@ -22,6 +22,19 @@ Chaque niveau doit rester lisible : le nom du test exprime le comportement atten
 
 Les cas unitaires sont les plus rapides et isolent les regles metier. Les cas API verifient l'integration HTTP. Les cas IHM couvrent les parcours critiques de l'utilisateur.
 
+## Tests de performance
+
+Les cinq cas de performance sont dans [tests_performance/test_api_performance.py](tests_performance/test_api_performance.py). Ils mesurent le temps moyen, le percentile 95, la stabilite sequentielle et la reponse sous concurrence.
+
+Ils sont opt-in pour ne pas generer de charge pendant les tests fonctionnels :
+
+```powershell
+$env:RUN_PERFORMANCE = "1"
+python -m pytest tests_performance -m performance -s -q
+```
+
+Les seuils sont configurables avec `PERFORMANCE_MAX_AVERAGE`, `PERFORMANCE_MAX_P95`, `PERFORMANCE_MAX_CONCURRENT`, `PERFORMANCE_TIMEOUT` et `PERFORMANCE_CONCURRENCY`. Les tests de performance doivent etre executes sur un environnement de test autorise, jamais contre une production sans accord.
+
 ## Executer localement
 
 ```powershell
