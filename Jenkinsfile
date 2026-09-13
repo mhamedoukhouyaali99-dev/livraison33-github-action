@@ -82,6 +82,18 @@ pipeline {
                 }
             }
         }
+
+        stage('Tests Performance') {
+            when {
+                expression { env.RUN_PERFORMANCE == 'true' }
+            }
+            steps {
+                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                    bat 'if not exist reports\\performance mkdir reports\\performance'
+                    bat 'set RUN_PERFORMANCE=1&& "%PYTHON_EXE%" -m pytest tests_performance -m performance -s -q > reports\\performance\\performance-results.txt 2>&1'
+                }
+            }
+        }
     }
 
     post {

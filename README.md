@@ -60,6 +60,19 @@ python -m pip install -r requirements.txt
 ./run_all_tests.bat
 ```
 
+## Organisation des tests et rapports
+
+| Niveau | Dossier de tests | Commande locale | Rapport |
+| --- | --- | --- | --- |
+| Unitaire | `tests_unitaire` | `run_unitaire.bat` | `reports/unitaire/unit-test-results.txt` |
+| API | `tests_api` et `tests/test_api` | `run_api.bat` | `reports/api` et `reports/api-pytest` |
+| IHM | `tests_ihm` | `run_ihm.bat` | `reports/ihm` |
+| Performance | `tests_performance` | `run_performance.bat` | `reports/performance/performance-results.txt` |
+
+`run_all_tests.bat` lance les niveaux fonctionnels unitaires, API et IHM. La performance se lance séparément avec `run_performance.bat`, car elle génère volontairement du trafic et peut durer plus longtemps.
+
+Dans Jenkins, le niveau performance est exécuté uniquement si la variable de job `RUN_PERFORMANCE` vaut `true`. Dans GitHub Actions, il s'exécute sur une pull request ou manuellement avec `workflow_dispatch`.
+
 Les donnees utilisees localement sont des donnees de test. Elles ne doivent pas etre remplacees par des identifiants de production.
 
 ## Pipeline
