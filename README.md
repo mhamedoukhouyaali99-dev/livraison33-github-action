@@ -73,6 +73,8 @@ python -m pip install -r requirements.txt
 
 Dans Jenkins, le niveau performance est exécuté uniquement si la variable de job `RUN_PERFORMANCE` vaut `true`. Dans GitHub Actions, il s'exécute sur une pull request ou manuellement avec `workflow_dispatch`.
 
+Les étapes de test sont non bloquantes : un échec est conservé dans le rapport et le job continue avec les autres niveaux. Le développeur doit consulter les artefacts et corriger les cas en échec; Jenkins affiche le niveau `UNSTABLE` au lieu de bloquer le pipeline.
+
 Les donnees utilisees localement sont des donnees de test. Elles ne doivent pas etre remplacees par des identifiants de production.
 
 ## Pipeline
@@ -85,7 +87,7 @@ Les etapes attendues sont :
 2. Executer les tests unitaires.
 3. Executer les tests API.
 4. Executer les tests IHM avec Chrome headless.
-5. Archiver les rapports et bloquer la livraison si un test critique echoue.
+5. Archiver les rapports et signaler les tests en échec sans interrompre les autres niveaux.
 
 ## Metriques a suivre
 

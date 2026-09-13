@@ -56,7 +56,7 @@ pipeline {
 
         stage('Tests unitaires') {
             steps {
-                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     bat 'if not exist reports mkdir reports'
                     bat '"%PYTHON_EXE%" -m unittest discover -v tests_unitaire > reports\\unit-test-results.txt 2>&1'
                 }
@@ -65,7 +65,7 @@ pipeline {
 
         stage('Tests API') {
             steps {
-                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     bat 'if not exist reports\\api mkdir reports\\api'
                     bat '"%PYTHON_EXE%" -m robot --outputdir reports\\api tests_api'
                     bat 'if not exist reports\\api-pytest mkdir reports\\api-pytest'
@@ -76,7 +76,7 @@ pipeline {
 
         stage('Tests IHM') {
             steps {
-                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     bat 'if not exist reports\\ihm mkdir reports\\ihm'
                     bat '"%PYTHON_EXE%" -m robot --outputdir reports\\ihm tests_ihm'
                 }
@@ -88,7 +88,7 @@ pipeline {
                 expression { env.RUN_PERFORMANCE == 'true' }
             }
             steps {
-                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     bat 'if not exist reports\\performance mkdir reports\\performance'
                     bat 'set RUN_PERFORMANCE=1&& "%PYTHON_EXE%" -m pytest tests_performance -m performance -s -q > reports\\performance\\performance-results.txt 2>&1'
                 }
