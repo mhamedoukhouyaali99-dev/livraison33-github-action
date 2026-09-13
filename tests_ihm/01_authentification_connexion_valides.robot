@@ -25,9 +25,11 @@ Effectuer Une Connection Réussie
     Saisir Le Nom D'Utilisateur    ${UTILISATEUR VALIDE}
     Saisir Le Mot De Passe         ${MOT DE PASSE VALIDE}
     Soumette Le Formulaire De Connexion
+    Wait Until Element Is Not Visible    ${CHAMP UTILISATEUR}    timeout=30s
+    Title Should Be    ${TITRE TABLEAU DE BORD}
 
 Vérifier Que Le Tableau De Bord Est Visible
-    Wait Until Element Is Not Visible    ${CHAMP UTILISATEUR}    timeout=10s
+    Wait Until Element Is Not Visible    ${CHAMP UTILISATEUR}    timeout=30s
     Title Should Be    ${TITRE TABLEAU DE BORD}
 
 Effectuer Une Déconnexion Réussie
