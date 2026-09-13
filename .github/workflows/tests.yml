@@ -154,3 +154,56 @@ jobs:
           name: rapport-tests-performance
           path: reports-performance.txt
           if-no-files-found: ignore
+
+  rapport-global:
+    name: Rapport HTML global
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [tests-unitaires, tests-api, tests-ihm, tests-performance]
+
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Telecharger le rapport unitaire
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: rapport-tests-unitaires
+          path: reports/unitaire
+
+      - name: Telecharger le rapport API
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: rapports-tests-api
+          path: reports/api
+
+      - name: Telecharger le rapport IHM
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: rapports-tests-ihm
+          path: reports/ihm
+
+      - name: Telecharger le rapport performance
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: rapport-tests-performance
+          path: reports/performance
+
+      - name: Generer le rapport HTML global
+        run: python scripts/generate_report_index.py --root reports
+
+      - name: Publier le rapport HTML global
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapport-html-global
+          path: reports
+          if-no-files-found: warn

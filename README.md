@@ -69,7 +69,7 @@ python -m pip install -r requirements.txt
 | IHM | `tests_ihm` | `run_ihm.bat` | `reports/ihm` |
 | Performance | `tests_performance` | `run_performance.bat` | `reports/performance/performance-results.txt` |
 
-`run_all_tests.bat` lance les niveaux fonctionnels unitaires, API et IHM. La performance se lance séparément avec `run_performance.bat`, car elle génère volontairement du trafic et peut durer plus longtemps.
+`run_all_tests.bat` lance les quatre niveaux et génère le point d'entrée HTML `reports/index.html`. La performance peut aussi se lancer séparément avec `run_performance.bat`, car elle génère volontairement du trafic et peut durer plus longtemps.
 
 Dans Jenkins, le niveau performance est exécuté uniquement si la variable de job `RUN_PERFORMANCE` vaut `true`. Dans GitHub Actions, il s'exécute sur chaque `push`, sur les pull requests et manuellement avec `workflow_dispatch`.
 
