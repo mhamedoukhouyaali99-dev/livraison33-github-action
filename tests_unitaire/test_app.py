@@ -1,3 +1,8 @@
+"""Tests unitaires du domaine de gestion des proprietes Homey.
+
+Ces tests isolent HomeyManager du navigateur, du reseau et de la base de donnees.
+"""
+
 import unittest
 from appl import HomeyManager, Propriete
 

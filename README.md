@@ -2,6 +2,14 @@
 
 Ce depot regroupe les tests unitaires, API et IHM du projet. La suite valide les parcours critiques avant une livraison ou une publication de demonstration.
 
+## Niveaux de test
+
+- **Unitaire** : verifie les regles metier de `HomeyManager` en memoire, rapidement et sans dependance externe.
+- **API** : verifie le contrat HTTP, les codes de statut, l'authentification, la pagination et la structure JSON.
+- **IHM** : verifie les parcours utilisateur dans Chrome headless, notamment la connexion, le profil et les formulaires.
+
+Chaque niveau doit rester lisible : le nom du test exprime le comportement attendu, les commentaires expliquent le risque couvert et les donnees sensibles restent dans les secrets CI.
+
 ## Executer localement
 
 ```powershell

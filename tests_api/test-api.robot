@@ -5,11 +5,14 @@ Library    Collections
 Resource   donnees.resource
 Suite Setup    Verifier La Configuration Des Secrets
 
+# Les tests API valident le contrat HTTP: authentification, statuts,
+# structure JSON et operations de lecture/ecriture.
 *** Keywords ***
 Verifier La Configuration Des Secrets
     Should Not Be Empty    ${API KEY}    La variable d'environnement API_KEY est obligatoire.
 
 *** Test Cases ***
+# Lecture d'une ressource et controle des champs fonctionnels attendus.
 Test Requete GET Utilisateur
     &{headers}=        Create Dictionary    Authorization=Bearer ${API KEY}
     ${Reponse}=        GET    ${API BASE URL}api/users/${ID UTILISATEUR}    headers=${headers}    expected_status=200
@@ -23,6 +26,7 @@ Test Requete GET Utilisateur
     ${email}=          Get From Dictionary    ${utilisateur}    email
     Should Be Equal As Strings    ${EMAIL ATTENDU}    ${email}
 
+# Pagination et collection: la reponse doit contenir des donnees exploitables.
 Test Requete GET Liste Utilisateurs
     &{headers}=        Create Dictionary    Authorization=Bearer ${API KEY}
     ${Reponse}=        GET    ${API BASE URL}api/users    headers=${headers}    expected_status=200
@@ -31,6 +35,7 @@ Test Requete GET Liste Utilisateurs
     ${utilisateurs}=   Get From Dictionary    ${Reponse.json()}    data
     Should Not Be Empty    ${utilisateurs}
 
+# Cas nominal de pagination sur la deuxieme page.
 Test Requete GET Page Deux
     &{headers}=        Create Dictionary    Authorization=Bearer ${API KEY}
     ${Reponse}=        GET    url=${API BASE URL}api/users?page=2    headers=${headers}    expected_status=200
@@ -39,6 +44,7 @@ Test Requete GET Page Deux
     ${utilisateurs}=   Get From Dictionary    ${Reponse.json()}    data
     Should Not Be Empty    ${utilisateurs}
 
+# Les erreurs fonctionnelles doivent retourner un statut HTTP explicite.
 Test Requete GET Utilisateur Inexistant
     &{headers}=        Create Dictionary    Authorization=Bearer ${API KEY}
     GET    ${API BASE URL}api/users/${ID INEXISTANT}    headers=${headers}    expected_status=404
@@ -46,6 +52,7 @@ Test Requete GET Utilisateur Inexistant
 Test Requete GET Sans Authentification
     GET    ${API BASE URL}api/users/${ID UTILISATEUR}    expected_status=401
 
+# Creation et validation de la structure de la ressource creee.
 Test Requete POST Creation Utilisateur
     &{headers}=        Create Dictionary    Authorization=Bearer ${API KEY}
     &{Corps_Requete}=  Create Dictionary    first_name=${NOUVEAU PRENOM}    last_name=${NOUVEAU NOM}    email=${NOUVEL EMAIL}
@@ -59,6 +66,7 @@ Test Requete POST Sans Champs Obligatoires
     &{Corps_Requete}=  Create Dictionary
     POST    ${API BASE URL}api/users    json=${Corps_Requete}    headers=${headers}    expected_status=422
 
+# Mise a jour complete: creation de la fixture puis verification des nouvelles valeurs.
 Test Requete PUT
     &{headers}=        Create Dictionary    Authorization=Bearer ${API KEY}
     &{Creation}=       Create Dictionary    first_name=${NOUVEAU PRENOM}    last_name=${NOUVEAU NOM}    email=${NOUVEL EMAIL}
@@ -85,6 +93,7 @@ Test Requete PATCH Non Autorisee
     &{Corps_Requete}=  Create Dictionary    first_name=Api
     PATCH    ${API BASE URL}api/users/${ID UTILISATEUR}    json=${Corps_Requete}    headers=${headers}    expected_status=405
 
+# Le contrat minimal d'une reponse utilisateur protege les consommateurs de l'API.
 Test Structure Reponse Utilisateur
     &{headers}=        Create Dictionary    Authorization=Bearer ${API KEY}
     ${Reponse}=        GET    ${API BASE URL}api/users/${ID UTILISATEUR}    headers=${headers}    expected_status=200
