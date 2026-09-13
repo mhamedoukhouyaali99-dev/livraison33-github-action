@@ -8,6 +8,8 @@ Ce depot regroupe les tests unitaires, API et IHM du projet. La suite valide les
 - **API** : verifie le contrat HTTP, les codes de statut, l'authentification, la pagination et la structure JSON.
 - **IHM** : verifie les parcours utilisateur dans Chrome headless, notamment la connexion, le profil et les formulaires.
 
+La suite [tests_ihm/06_cas_fonctionnels_istqb.robot](tests_ihm/06_cas_fonctionnels_istqb.robot) regroupe cinq cas fonctionnels IHM etiquetes ISTQB pour faciliter le suivi dans les rapports Robot.
+
 Chaque niveau doit rester lisible : le nom du test exprime le comportement attendu, les commentaires expliquent le risque couvert et les donnees sensibles restent dans les secrets CI.
 
 ## Techniques ISTQB appliquees
