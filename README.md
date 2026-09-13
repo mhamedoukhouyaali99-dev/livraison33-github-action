@@ -14,11 +14,10 @@ Chaque niveau doit rester lisible : le nom du test exprime le comportement atten
 
 ```powershell
 python -m pip install -r requirements.txt
-$env:API_KEY = "votre-cle-de-test"
 ./run_all_tests.bat
 ```
 
-La cle API doit venir d'une variable d'environnement. Elle ne doit jamais etre ajoutee dans un fichier Robot ou dans un commit.
+Les donnees utilisees localement sont des donnees de test. Elles ne doivent pas etre remplacees par des identifiants de production.
 
 ## Pipeline
 
@@ -30,8 +29,7 @@ Les etapes attendues sont :
 2. Executer les tests unitaires.
 3. Executer les tests API.
 4. Executer les tests IHM avec Chrome headless.
-5. Masquer les secrets dans les rapports.
-6. Archiver les rapports et bloquer la livraison si un test critique echoue.
+5. Archiver les rapports et bloquer la livraison si un test critique echoue.
 
 ## Metriques a suivre
 

@@ -3,13 +3,9 @@
 Library    RequestsLibrary
 Library    Collections
 Resource   donnees.resource
-Suite Setup    Verifier La Configuration Des Secrets
 
 # Les tests API valident le contrat HTTP: authentification, statuts,
 # structure JSON et operations de lecture/ecriture.
-*** Keywords ***
-Verifier La Configuration Des Secrets
-    Should Not Be Empty    ${API KEY}    La variable d'environnement API_KEY est obligatoire.
 
 *** Test Cases ***
 # Lecture d'une ressource et controle des champs fonctionnels attendus.

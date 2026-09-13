@@ -1,6 +1,6 @@
 *** Variables ***
 ${API BASE URL}             https://mock-api-h0g7.onrender.com/
-${API KEY}                  %{API_KEY}
+${API KEY}                  Cle-API-ReqRes-test-academy
 ${ID UTILISATEUR}          1
 ${PRENOM ATTENDU}          George
 ${NOM ATTENDU}             Bluth

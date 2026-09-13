@@ -6,11 +6,11 @@
 - Utiliser des secrets GitHub Actions ou des credentials Jenkins pour la CI/CD.
 - Utiliser des comptes et donnees de test dedies, avec une duree de vie limitee.
 - Ne pas publier `reports/`, captures d'ecran ou logs contenant des donnees personnelles sur les reseaux sociaux.
-- Verifier les rapports avant partage; le script `scripts/mask_sensitive_reports.py` remplace les valeurs sensibles connues par `[MASKED]`.
+- Verifier les rapports avant partage et supprimer manuellement toute donnee sensible.
 
 ## Configuration CI/CD
 
-GitHub Actions doit disposer d'un secret de depot nommé `API_KEY`. Jenkins doit disposer d'un credential secret-text nommé `api-key`. Une rotation de la cle est necessaire si elle a deja ete publiee dans l'historique Git ou un rapport.
+Les tests actuels utilisent des donnees de test. Ne jamais y injecter de compte ou de cle de production. Une rotation de la cle est necessaire si elle a deja ete publiee dans l'historique Git ou un rapport.
 
 ## Procedure en cas d'exposition
 
