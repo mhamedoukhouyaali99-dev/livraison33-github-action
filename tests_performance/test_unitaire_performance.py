@@ -19,7 +19,12 @@ MAX_UNIT_AVERAGE_SECONDS = float(os.getenv("PERFORMANCE_UNIT_MAX_AVERAGE", "0.01
 
 
 def test_performance_unitaire_recherche_propriete() -> None:
-    """Performance unitaire: rechercher une propriete reste rapide en memoire."""
+    """Objectif: mesurer une regle metier sans reseau ni navigateur.
+
+    Mesure: recherche repetee dans une collection de 100 proprietes.
+    Attendu: chaque recherche retourne un resultat et la moyenne reste
+    sous PERFORMANCE_UNIT_MAX_AVERAGE.
+    """
     manager = HomeyManager()
     for propriete_id in range(100):
         manager.ajouter_propriete(propriete_id, f"Propriete {propriete_id}", 100)

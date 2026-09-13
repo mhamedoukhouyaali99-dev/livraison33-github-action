@@ -1,4 +1,8 @@
-"""Tests de performance legers et reproductibles pour les routes HTTP critiques."""
+"""Tests de performance legers et reproductibles pour les routes HTTP critiques.
+
+Chaque test est opt-in et verifie trois points: absence d'erreur HTTP,
+temps de reponse mesure et respect du seuil correspondant au type de charge.
+"""
 
 import os
 import statistics
@@ -84,22 +88,38 @@ def require_performance_mode() -> None:
 
 
 def test_home_response_time_is_within_threshold() -> None:
-    """Cas 1: la page d'accueil respecte le temps moyen et le p95 cibles."""
+    """Objectif: mesurer la reponse nominale de l'accueil.
+
+    Mesure: cinq requetes sequentielles, moyenne et percentile 95.
+    Attendu: statut HTTP 200, moyenne et p95 sous leurs seuils.
+    """
     _assert_performance(HOME_PATH, count=5)
 
 
 def test_listing_response_time_is_within_threshold() -> None:
-    """Cas 2: la page annonce respecte le temps moyen et le p95 cibles."""
+    """Objectif: mesurer la reponse nominale d'une page annonce.
+
+    Mesure: cinq requetes sequentielles sur une page dynamique.
+    Attendu: statut HTTP 200, moyenne et p95 sous leurs seuils.
+    """
     _assert_performance(LISTING_PATH, count=5)
 
 
 def test_home_sequential_requests_are_stable() -> None:
-    """Cas 3: une serie de requetes sequentielles reste sans erreur."""
+    """Objectif: verifier la stabilite hors concurrence.
+
+    Mesure: dix requetes successives sur l'accueil.
+    Attendu: aucune erreur et aucune derive au-dela du p95 configure.
+    """
     _assert_performance(HOME_PATH, count=10)
 
 
 def test_home_concurrent_requests_support_expected_load() -> None:
-    """Cas 4: la page d'accueil supporte la concurrence configuree."""
+    """Objectif: valider la charge nominale de l'accueil.
+
+    Mesure: le nombre normal de requetes est lance simultanement.
+    Attendu: toutes les reponses sont 200 et restent sous le seuil concurrent.
+    """
     with ThreadPoolExecutor(max_workers=CONCURRENT_REQUESTS) as executor:
         results = list(executor.map(_request, [HOME_PATH] * CONCURRENT_REQUESTS))
 
@@ -109,7 +129,11 @@ def test_home_concurrent_requests_support_expected_load() -> None:
 
 
 def test_listing_concurrent_requests_support_expected_load() -> None:
-    """Cas 5: la page annonce supporte la concurrence configuree."""
+    """Objectif: valider la charge nominale d'une page annonce.
+
+    Mesure: le nombre normal de visiteurs simultanes sur une page dynamique.
+    Attendu: toutes les reponses sont 200 et restent sous le seuil concurrent.
+    """
     with ThreadPoolExecutor(max_workers=CONCURRENT_REQUESTS) as executor:
         results = list(executor.map(_request, [LISTING_PATH] * CONCURRENT_REQUESTS))
 
@@ -119,26 +143,46 @@ def test_listing_concurrent_requests_support_expected_load() -> None:
 
 
 def test_charge_normale_sur_page_accueil() -> None:
-    """Test de charge: volume nominal configure sur une route critique."""
+    """Test de charge.
+
+    Objectif: representer le trafic attendu en fonctionnement normal.
+    Mesure: concurrence nominale configurable sur l'accueil.
+    Attendu: aucune erreur et temps maximum sous PERFORMANCE_MAX_CONCURRENT.
+    """
     _assert_concurrent_performance(
         HOME_PATH, CONCURRENT_REQUESTS, "charge", MAX_CONCURRENT_SECONDS
     )
 
 
 def test_stress_progressif_sur_page_annonce() -> None:
-    """Test de stress: concurrence superieure au volume nominal."""
+    """Test de stress.
+
+    Objectif: observer le comportement quand la charge depasse le nominal.
+    Mesure: concurrence configuree par PERFORMANCE_STRESS_CONCURRENCY.
+    Attendu: le service reste disponible sans erreur sous PERFORMANCE_MAX_STRESS.
+    """
     _assert_concurrent_performance(
         LISTING_PATH, STRESS_CONCURRENCY, "stress", MAX_STRESS_SECONDS
     )
 
 
 def test_pic_soudain_sur_page_accueil() -> None:
-    """Test de pic: arrivee simultanee et soudaine de requetes."""
+    """Test de pic.
+
+    Objectif: simuler une arrivee simultanee de visiteurs.
+    Mesure: concurrence instantanee configuree par PERFORMANCE_SPIKE_CONCURRENCY.
+    Attendu: toutes les requetes obtiennent 200 sous PERFORMANCE_MAX_SPIKE.
+    """
     _assert_concurrent_performance(
         HOME_PATH, SPIKE_CONCURRENCY, "pic", MAX_SPIKE_SECONDS
     )
 
 
 def test_endurance_courte_sur_page_accueil() -> None:
-    """Test d'endurance: repetitions sequentielles sans erreur dans la duree."""
+    """Test d'endurance.
+
+    Objectif: detecter une degradation lors de repetitions prolongees.
+    Mesure: nombre d'iterations configure par PERFORMANCE_ENDURANCE_ITERATIONS.
+    Attendu: moyenne, p95 et taux d'erreur restent dans les seuils nominaux.
+    """
     _assert_performance(HOME_PATH, ENDURANCE_ITERATIONS)

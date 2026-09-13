@@ -41,6 +41,18 @@ python -m pytest tests_performance -m performance -s -q
 
 Les seuils sont configurables avec `PERFORMANCE_MAX_AVERAGE`, `PERFORMANCE_MAX_P95`, `PERFORMANCE_MAX_CONCURRENT`, `PERFORMANCE_MAX_STRESS`, `PERFORMANCE_MAX_SPIKE`, `PERFORMANCE_TIMEOUT`, `PERFORMANCE_CONCURRENCY`, `PERFORMANCE_STRESS_CONCURRENCY`, `PERFORMANCE_SPIKE_CONCURRENCY`, `PERFORMANCE_ENDURANCE_ITERATIONS` et `PERFORMANCE_UNIT_ITERATIONS`. Les tests de performance doivent etre executes sur un environnement de test autorise, jamais contre une production sans accord.
 
+### Lecture des cas
+
+| Cas | Objectif | Critere de succes |
+| --- | --- | --- |
+| Accueil nominal | Mesurer le temps normal de reponse | Moyenne et p95 sous les seuils |
+| Page annonce nominale | Mesurer une page dynamique | HTTP 200 et p95 conforme |
+| Charge | Representer le trafic attendu | Aucune erreur sous la concurrence nominale |
+| Stress | Depasser le trafic nominal | Service disponible sous le seuil stress |
+| Pic | Simuler une arrivee simultanee | Reponses 200 sous le seuil pic |
+| Endurance | Rechercher une degradation progressive | Moyenne, p95 et erreurs stables |
+| Performance unitaire | Isoler une regle metier en memoire | Recherche correcte et temps moyen conforme |
+
 ## Executer localement
 
 ```powershell
