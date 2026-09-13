@@ -1,7 +1,13 @@
+
 *** Settings ***
 Library    RequestsLibrary
 Library    Collections
 Resource   donnees.resource
+Suite Setup    Verifier La Configuration Des Secrets
+
+*** Keywords ***
+Verifier La Configuration Des Secrets
+    Should Not Be Empty    ${API KEY}    La variable d'environnement API_KEY est obligatoire.
 
 *** Test Cases ***
 Test Requete GET Utilisateur

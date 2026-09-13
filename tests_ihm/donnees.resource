@@ -2,7 +2,7 @@
 ${URL APPLICATION}                 http://livraison3.testacademy.fr
 ${NAVIGATEUR}                      chrome
 ${UTILISATEUR VALIDE}              3di
-${MOT DE PASSE VALIDE}             3di
+${MOT DE PASSE VALIDE}             %{TEST_PASSWORD}
 ${UTILISATEUR NON VALIDE}          nonvalide
 ${MOT DE PASSE NON VALIDE}         nonvalide
 ${TITRE TABLEAU DE BORD}           Tableau de bord - Livraison 3

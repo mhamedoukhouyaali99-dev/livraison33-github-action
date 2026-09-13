@@ -2,6 +2,11 @@
 setlocal
 cd /d "%~dp0"
 
+if exist reports rmdir /s /q reports
+if exist log.html del /f /q log.html
+if exist output.xml del /f /q output.xml
+if exist report.html del /f /q report.html
+
 set "global_status=0"
 
 echo ===============================

@@ -65,20 +65,26 @@ pipeline {
 
         stage('Tests API') {
             steps {
-                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
-                    bat 'if not exist reports\\api mkdir reports\\api'
-                    bat '"%PYTHON_EXE%" -m robot --outputdir reports\\api tests_api'
-                    bat 'if not exist reports\\api-pytest mkdir reports\\api-pytest'
-                    bat '"%PYTHON_EXE%" -m pytest tests\\test_api --html=reports\\api-pytest\\results_api.html --self-contained-html -q'
+                withCredentials([string(credentialsId: 'api-key', variable: 'API_KEY')]) {
+                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                        bat 'if not exist reports\\api mkdir reports\\api'
+                        bat '"%PYTHON_EXE%" -m robot --outputdir reports\\api tests_api'
+                        bat 'if not exist reports\\api-pytest mkdir reports\\api-pytest'
+                        bat '"%PYTHON_EXE%" -m pytest tests\\test_api --html=reports\\api-pytest\\results_api.html --self-contained-html -q'
+                    }
+                    bat '"%PYTHON_EXE%" scripts\\mask_sensitive_reports.py'
                 }
             }
         }
 
         stage('Tests IHM') {
             steps {
-                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
-                    bat 'if not exist reports\\ihm mkdir reports\\ihm'
-                    bat '"%PYTHON_EXE%" -m robot --outputdir reports\\ihm tests_ihm'
+                withCredentials([string(credentialsId: 'test-password', variable: 'TEST_PASSWORD')]) {
+                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                        bat 'if not exist reports\\ihm mkdir reports\\ihm'
+                        bat '"%PYTHON_EXE%" -m robot --outputdir reports\\ihm tests_ihm'
+                    }
+                    bat '"%PYTHON_EXE%" scripts\\mask_sensitive_reports.py'
                 }
             }
         }

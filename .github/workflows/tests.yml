@@ -58,10 +58,20 @@ jobs:
           python -m pip install --upgrade -r requirements.txt
 
       - name: Executer les tests API
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
         run: python -m robot --outputdir reports/api tests_api
 
       - name: Executer les tests API Pytest
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
         run: python -m pytest tests/test_api --html=reports/api-pytest/results_api.html --self-contained-html -q
+
+      - name: Masquer les donnees sensibles des rapports API
+        if: always()
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+        run: python scripts/mask_sensitive_reports.py
 
       - name: Conserver les rapports API
         if: always()
@@ -110,7 +120,15 @@ jobs:
           exit 1
 
       - name: Executer les tests IHM dans un affichage virtuel
+        env:
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
         run: xvfb-run --auto-servernum python -m robot --outputdir reports/ihm tests_ihm
+
+      - name: Masquer les donnees sensibles des rapports IHM
+        if: always()
+        env:
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+        run: python scripts/mask_sensitive_reports.py
 
       - name: Conserver les rapports IHM
         if: always()
