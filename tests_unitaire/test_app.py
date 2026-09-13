@@ -54,6 +54,41 @@ class TestHomeyManagerSolution(unittest.TestCase):
         """
         with self.assertRaises(ValueError):
             self.manager.ajouter_propriete(10, "PropriÃ©tÃ© gratuite", -50.0)
+
+    def test_ajouter_propriete_prix_zero_valeur_limite(self):
+        """Valeur limite: un prix nul est refuse comme un prix negatif."""
+        with self.assertRaises(ValueError):
+            self.manager.ajouter_propriete(10, "Propriete gratuite", 0)
+
+    def test_rechercher_par_nom_insensible_a_la_casse(self):
+        """Partition fonctionnelle: la recherche accepte les majuscules."""
+        resultats = self.manager.rechercher_par_nom("vIlLa")
+
+        self.assertEqual(resultats, [self.propriete1])
+
+    def test_reserver_propriete_change_le_statut(self):
+        """Transition d'etat: disponible devient reservee apres reservation."""
+        self.assertTrue(self.propriete1.est_disponible)
+
+        resultat = self.manager.reserver_propriete(1)
+
+        self.assertTrue(resultat)
+        self.assertFalse(self.propriete1.est_disponible)
+
+    def test_liberer_propriete_reservee(self):
+        """Transition inverse: une propriete reservee redevient disponible."""
+        self.manager.reserver_propriete(1)
+
+        resultat = self.manager.liberer_propriete(1)
+
+        self.assertTrue(resultat)
+        self.assertTrue(self.propriete1.est_disponible)
+
+    def test_liberer_propriete_deja_disponible(self):
+        """Partition negative: liberer une propriete disponible est refuse."""
+        resultat = self.manager.liberer_propriete(1)
+
+        self.assertFalse(resultat)
     
     def test_supprimer_propriete_existante(self):
         """

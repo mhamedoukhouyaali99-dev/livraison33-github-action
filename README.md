@@ -10,6 +10,16 @@ Ce depot regroupe les tests unitaires, API et IHM du projet. La suite valide les
 
 Chaque niveau doit rester lisible : le nom du test exprime le comportement attendu, les commentaires expliquent le risque couvert et les donnees sensibles restent dans les secrets CI.
 
+## Techniques ISTQB appliquees
+
+- **Partition d'equivalence** : prix valide, prix negatif et prix nul; recherche avec resultat et sans resultat.
+- **Analyse des valeurs limites** : prix `0`, juste sous la regle `0` et valeur positive.
+- **Tests de transition d'etat** : disponible vers reservee, puis reservee vers disponible.
+- **Tests negatifs** : propriete inexistante, suppression impossible et operation interdite.
+- **Tests de contrat** : codes HTTP, champs obligatoires et structure des reponses API.
+
+Les cas unitaires sont les plus rapides et isolent les regles metier. Les cas API verifient l'integration HTTP. Les cas IHM couvrent les parcours critiques de l'utilisateur.
+
 ## Executer localement
 
 ```powershell
