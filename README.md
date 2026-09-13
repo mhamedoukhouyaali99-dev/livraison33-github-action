@@ -71,7 +71,7 @@ python -m pip install -r requirements.txt
 
 `run_all_tests.bat` lance les niveaux fonctionnels unitaires, API et IHM. La performance se lance séparément avec `run_performance.bat`, car elle génère volontairement du trafic et peut durer plus longtemps.
 
-Dans Jenkins, le niveau performance est exécuté uniquement si la variable de job `RUN_PERFORMANCE` vaut `true`. Dans GitHub Actions, il s'exécute sur une pull request ou manuellement avec `workflow_dispatch`.
+Dans Jenkins, le niveau performance est exécuté uniquement si la variable de job `RUN_PERFORMANCE` vaut `true`. Dans GitHub Actions, il s'exécute sur chaque `push`, sur les pull requests et manuellement avec `workflow_dispatch`.
 
 Les étapes de test sont non bloquantes : un échec est conservé dans le rapport et le job continue avec les autres niveaux. Le développeur doit consulter les artefacts et corriger les cas en échec; Jenkins affiche le niveau `UNSTABLE` au lieu de bloquer le pipeline.
 
