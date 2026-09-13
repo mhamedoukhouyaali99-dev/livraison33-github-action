@@ -1,12 +1,63 @@
 *** Settings ***
+Library     RequestsLibrary
+Library     Collections
 Library     SeleniumLibrary
-Resource    donnees.resource
-
-
-
 
 *** Variables ***
-# --- Locators Connexion (Existants) ---
+# Donnees API
+${API BASE URL}             https://mock-api-h0g7.onrender.com/
+${API KEY}                  Cle-API-ReqRes-test-academy
+${ID UTILISATEUR}          1
+${PRENOM ATTENDU}          George
+${NOM ATTENDU}             Bluth
+${EMAIL ATTENDU}           george.bluth@api.testacademy.fr
+${NOUVEAU PRENOM}          Api
+${NOUVEAU NOM}             Test
+${NOUVEL EMAIL}            api.test.1@testacademy.fr
+${ID INEXISTANT}           999999
+${EMAIL MISE A JOUR}       api.updated@testacademy.fr
+
+# Donnees IHM
+${URL APPLICATION}                 http://livraison3.testacademy.fr
+${NAVIGATEUR}                      chrome
+${UTILISATEUR VALIDE}              3di
+${MOT DE PASSE VALIDE}             3di
+${UTILISATEUR NON VALIDE}          nonvalide
+${MOT DE PASSE NON VALIDE}         nonvalide
+${TITRE TABLEAU DE BORD}           Tableau de bord - Livraison 3
+${URL ANNONCE}                     http://livraison3.testacademy.fr/index.php/listing/beautiful-cove/
+${NOM CONTACT}                     Jean
+${EMAIL CONTACT}                   jean@test.fr
+${TELEPHONE CONTACT}               0600000000
+${MESSAGE CONTACT}                 Bonjour, je suis interesse.
+${NOM INSCRIPTION}                 ALI_TEST
+${EMAIL INSCRIPTION}               ali@test.fr
+${MOT DE PASSE INSCRIPTION}        Ali123!
+${CONFIRMATION INSCRIPTION}        Ali123!
+${PROFIL PRENOM}                   TestPrenom
+${PROFIL NOM}                      TestNom
+${PROFIL LANGUE NATIVE}            Francais
+${PROFIL AUTRE LANGUE}             Anglais
+${PROFIL BIO}                      Profil automatise
+${PROFIL RUE}                      10 rue du Test
+${PROFIL APPARTEMENT}              12
+${PROFIL VILLE}                    Paris
+${PROFIL ETAT}                     Ile-de-France
+${PROFIL CODE POSTAL}              75001
+${PROFIL QUARTIER}                 Centre
+${PROFIL PAYS}                     France
+${TITRE ANNONCE}                   Annonce IHM Test
+${DESCRIPTION ANNONCE}             Logement de test pour la validation du parcours de creation.
+${TYPE ANNONCE}                    Appartment
+${CHAMBRES ANNONCE}                2
+${VOYAGEURS ANNONCE}               4
+${LITS ANNONCE}                    2
+${SALLES DE BAIN ANNONCE}          1
+${PIECES ANNONCE}                  3
+${SURFACE ANNONCE}                 60
+${UNITE SURFACE ANNONCE}           m2
+
+# Locators connexion
 ${LIEN SE CONNECTER}     css=a[data-target="#modal-login"]
 ${MODAL CONNEXION}      css=#modal-login
 ${CHAMP UTILISATEUR}    css=#modal-login input[name="username"]
@@ -15,22 +66,17 @@ ${BOUTON SE CONNECTER}     css=#modal-login button.homey_login_button
 ${LIEN SE DECONECTER}         xpath=//a[contains(normalize-space(.),'Se déconnecter')]
 ${ESPACE POUR AFFICHER LES ERREURS}  css=#modal-login .error
 
-# --- NOUVEAUX LOCATORS & VARIABLES (Feature Contacter Hôte) ---
-# Bouton dans la sidebar droite (version desktop)
+# Locators contact hote
 ${BOUTON CONTACTER HOTE SIDEBAR}    css=button[data-target="#modal-contact-host"]
-
-# Champs du formulaire modal "Contactez l'hôte"
 ${MODAL CONTACT HOTE}       css=#modal-contact-host
 ${CHAMP NOM CONTACT}        css=#modal-contact-host input[name="name"]
 ${CHAMP EMAIL CONTACT}      css=#modal-contact-host input[name="email"]
 ${CHAMP TELEPHONE CONTACT}  css=#modal-contact-host input[name="phone"]
 ${CHAMP MESSAGE CONTACT}    css=#modal-contact-host textarea[name="message"]
 ${BOUTON SOUMETTRE CONTACT}    css=#modal-contact-host button.contact_listing_host
-
-# Zone d'affichage des messages de succès ou d'erreur dans la modale
 ${MESSAGE RESULTAT CONTACT}    css=.homey_contact_messages
 
-# --- Locators Inscription Hote ---
+# Locators inscription et annonce
 ${LIEN DEVENIR HOTE}          css=a.btn-add-new-listing
 ${FORMULAIRE INSCRIPTION}     css=.register_module_wrap form
 ${CHAMP NOM INSCRIPTION}      css=.register_module_wrap input[name="username"]
@@ -39,8 +85,6 @@ ${CHAMP MOT DE PASSE INSCRIPTION}    css=.register_module_wrap input[name="regis
 ${CHAMP CONFIRMATION INSCRIPTION}    css=.register_module_wrap input[name="register_pass_retype"]
 ${CASE CONDITIONS INSCRIPTION}    css=.register_module_wrap input[name="term_condition"]
 ${BOUTON INSCRIPTION}         css=.register_module_wrap button.homey-register-button
-
-# --- Locators Creation Annonce ---
 ${LIEN CREER ANNONCE}         xpath=(//a[contains(@href,'/add-listing/') and contains(normalize-space(.),'Créer annonce')])[last()]
 ${FORMULAIRE CREATION ANNONCE}    id=submit_listing_form
 ${CHAMP TITRE ANNONCE}        id=listing_title
@@ -63,7 +107,7 @@ ${CHAMP PAYS ANNONCE}         id=homey_country
 ${BOUTON BROUILLON ANNONCE}  id=save_as_draft
 ${BOUTON CONTINUER ANNONCE}  css=#submit_listing_form .btn-step-next
 
-# --- Locators Profil ---
+# Locators profil
 ${PAGE PROFIL}                 css=#body-area
 ${CHAMP PROFIL PRENOM}         id=firstname
 ${CHAMP PROFIL NOM}            id=lastname
@@ -89,9 +133,7 @@ ${BOUTON SUPPRIMER COMPTE}         css=button.delete_user_account
 ${ALERTE SUPPRESSION COMPTE}        id=delete_account_warning
 ${BOUTON ANNULER SUPPRESSION}      css=#delete_account_warning button:not(.delete_user_account_confirmed)
 
-
 *** Keywords ***
-# --- Keywords Généraux ---
 Ouvrir Le Navigateur Et Accéder A L'Application
     Wait Until Keyword Succeeds    3x    10s    Ouvrir Le Navigateur
     Set Window Size    1920    1080
@@ -100,7 +142,6 @@ Ouvrir Le Navigateur Et Accéder A L'Application
 Ouvrir Le Navigateur
     Open Browser    ${URL APPLICATION}    ${NAVIGATEUR}    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--disable-gpu");add_argument("--disable-extensions");add_argument("--no-first-run");add_argument("--no-default-browser-check");add_argument("--window-size=1920,1080")
 
-# --- Keywords Connexion (Existants) ---
 Accéder A La Page De Connexion
     Wait Until Element Is Visible    ${LIEN SE CONNECTER}    timeout=30s
     Scroll Element Into View    ${LIEN SE CONNECTER}
@@ -118,9 +159,8 @@ Saisir Le Mot De Passe
     Input Password   ${CHAMP DE MOT DE PASSE}    ${mot de passe}
 
 Soumette Le Formulaire De Connexion
-   Click Button     ${BOUTON SE CONNECTER}
+    Click Button     ${BOUTON SE CONNECTER}
 
-# --- NOUVEAUX KEYWORDS (Feature Contacter Hôte) ---
 Accéder A Une Page Annonce
     Go To    ${URL ANNONCE}
     Wait Until Location Contains    /listing/beautiful-cove/    timeout=30s
@@ -134,7 +174,6 @@ Ouvrir Le Formulaire De Contact Hôte
 
 Remplir Le Formulaire De Contact
     [Arguments]    ${nom}    ${email}    ${telephone}    ${message}
-    # CORRECTION ICI : Utilisation de guillemets doubles "..." pour gérer les apostrophes dans le texte
     Run Keyword If    "${nom}" != "${EMPTY}"          Input Text    ${CHAMP NOM CONTACT}    ${nom}
     Run Keyword If    "${email}" != "${EMPTY}"        Input Text    ${CHAMP EMAIL CONTACT}    ${email}
     Run Keyword If    "${telephone}" != "${EMPTY}"    Input Text    ${CHAMP TELEPHONE CONTACT}    ${telephone}
@@ -144,10 +183,8 @@ Soumettre Le Formulaire De Contact
     Click Button    ${BOUTON SOUMETTRE CONTACT}
 
 Vérifier Que Le Message De Retour Est Visible
-    # Vérifie que la div de message (succès ou erreur) s'affiche après soumission
     Wait Until Element Is Visible    ${MESSAGE RESULTAT CONTACT}    timeout=5s
 
-# --- Keywords Inscription Hote ---
 Accéder Au Formulaire D'Inscription Hote
     Wait Until Element Is Visible    ${LIEN DEVENIR HOTE}    timeout=30s
     Scroll Element Into View    ${LIEN DEVENIR HOTE}
@@ -221,3 +258,36 @@ Soumettre L'Inscription Hote
 
 Verifier Que Le Formulaire D'Inscription Reste Visible
     Wait Until Element Is Visible    ${FORMULAIRE INSCRIPTION}    timeout=10s
+
+# Mots-cles fonctionnels ISTQB
+Verifier La Connexion Avec Des Identifiants Valides
+    Se Connecter Avec Le Compte Valide
+    Title Should Be    ${TITRE TABLEAU DE BORD}
+
+Verifier Le Refus D'Une Connexion Avec Des Identifiants Invalides
+    Accéder A La Page De Connexion
+    Saisir Le Nom D'Utilisateur    utilisateur-inconnu
+    Saisir Le Mot De Passe         mot-de-passe-invalide
+    Soumette Le Formulaire De Connexion
+    Wait Until Element Is Visible    ${ESPACE POUR AFFICHER LES ERREURS}    timeout=10s
+
+Verifier Le Retour Du Formulaire Contact Avec Un Email Vide
+    Accéder A Une Page Annonce
+    Ouvrir Le Formulaire De Contact Hôte
+    Remplir Le Formulaire De Contact    ${NOM CONTACT}    ${EMPTY}    ${TELEPHONE CONTACT}    ${MESSAGE CONTACT}
+    Soumettre Le Formulaire De Contact
+    Vérifier Que Le Message De Retour Est Visible
+
+Verifier Que Le Consentement Est Obligatoire Pour Une Inscription Hote
+    Accéder Au Formulaire D'Inscription Hote
+    ${required}=    Get Element Attribute    ${CASE CONDITIONS INSCRIPTION}    required
+    Should Be Equal As Strings    ${required}    true
+
+Verifier Que Le Profil Est Protege Sans Authentification
+    Go To    ${URL APPLICATION}/index.php/profile/
+    Wait Until Location Does Not Contain    /profile/    timeout=30s
+
+Le Locator Doit Pointer Vers Un Seul Element
+    [Arguments]    ${locator}
+    ${nombre}=    Get Element Count    ${locator}
+    Should Be Equal As Integers    ${nombre}    1

@@ -1,6 +1,6 @@
 *** Settings ***
 Library         SeleniumLibrary
-Resource        commun.resource
+Resource        ../ressources.resource
 Test Setup      Ouvrir Le Navigateur Et Accéder A L'Application
 Test Template   Une Inscription Invalide Doit Conserver Le Formulaire Visible
 Test Teardown   Close Browser

@@ -1,6 +1,6 @@
 *** Settings ***
 Library         SeleniumLibrary
-Resource        commun.resource
+Resource        ../ressources.resource
 Test Setup      Ouvrir Le Navigateur Et Accéder A L'Application
 Test Template   Soumettre Le Formulaire De Contact Hôte Et Vérifier Le Retour
 Test Teardown   Close Browser

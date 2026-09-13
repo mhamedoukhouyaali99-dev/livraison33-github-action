@@ -2,7 +2,7 @@
 *** Settings ***
 Library    RequestsLibrary
 Library    Collections
-Resource   donnees.resource
+Resource   ../ressources.resource
 
 # Les tests API valident le contrat HTTP: authentification, statuts,
 # structure JSON et operations de lecture/ecriture.

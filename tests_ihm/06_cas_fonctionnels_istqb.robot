@@ -1,6 +1,6 @@
 *** Settings ***
 Library         SeleniumLibrary
-Resource        istqb.resource
+Resource        ../ressources.resource
 Test Setup      Ouvrir Le Navigateur Et Accéder A L'Application
 Test Teardown   Close Browser
 

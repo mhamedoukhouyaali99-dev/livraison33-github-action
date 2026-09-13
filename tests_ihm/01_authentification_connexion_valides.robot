@@ -1,6 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
-Resource    commun.resource
+Resource    ../ressources.resource
 Metadata    Title     RobotframeworkGHIZLANEELAZKALANIReport
 
 *** Test Cases ***
