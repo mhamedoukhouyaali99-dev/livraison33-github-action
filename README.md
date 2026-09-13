@@ -24,7 +24,13 @@ Les cas unitaires sont les plus rapides et isolent les regles metier. Les cas AP
 
 ## Tests de performance
 
-Les cinq cas de performance sont dans [tests_performance/test_api_performance.py](tests_performance/test_api_performance.py). Ils mesurent le temps moyen, le percentile 95, la stabilite sequentielle et la reponse sous concurrence.
+Les cas de performance sont dans [tests_performance/test_api_performance.py](tests_performance/test_api_performance.py) et [tests_performance/test_unitaire_performance.py](tests_performance/test_unitaire_performance.py). Ils couvrent :
+
+- **Test de charge** : volume nominal de requetes concurrentes.
+- **Test de stress** : volume superieur au nominal.
+- **Test de pic** : arrivee simultanee et soudaine.
+- **Test d'endurance** : repetitions sequentielles sur une duree courte.
+- **Performance unitaire** : temps d'execution d'une regle metier en memoire.
 
 Ils sont opt-in pour ne pas generer de charge pendant les tests fonctionnels :
 
@@ -33,7 +39,7 @@ $env:RUN_PERFORMANCE = "1"
 python -m pytest tests_performance -m performance -s -q
 ```
 
-Les seuils sont configurables avec `PERFORMANCE_MAX_AVERAGE`, `PERFORMANCE_MAX_P95`, `PERFORMANCE_MAX_CONCURRENT`, `PERFORMANCE_TIMEOUT` et `PERFORMANCE_CONCURRENCY`. Les tests de performance doivent etre executes sur un environnement de test autorise, jamais contre une production sans accord.
+Les seuils sont configurables avec `PERFORMANCE_MAX_AVERAGE`, `PERFORMANCE_MAX_P95`, `PERFORMANCE_MAX_CONCURRENT`, `PERFORMANCE_MAX_STRESS`, `PERFORMANCE_MAX_SPIKE`, `PERFORMANCE_TIMEOUT`, `PERFORMANCE_CONCURRENCY`, `PERFORMANCE_STRESS_CONCURRENCY`, `PERFORMANCE_SPIKE_CONCURRENCY`, `PERFORMANCE_ENDURANCE_ITERATIONS` et `PERFORMANCE_UNIT_ITERATIONS`. Les tests de performance doivent etre executes sur un environnement de test autorise, jamais contre une production sans accord.
 
 ## Executer localement
 
